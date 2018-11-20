@@ -385,5 +385,99 @@ public class Keyboard {
 		
 		return res;
 	}
+	
+	//8.3. Tipo int
+	public static int readComparation(int num, Comparation comparation) {
+		int res;
+		boolean isValid = false;
+		
+		do {
+			System.out.printf("Introduce un número %s que %d" , comparation, num);
+			res = keyboard.nextInt();
+			
+			switch (comparation) {
+			case GREATER_OR_EQUAL:
+				if (res >= num) {
+					isValid = true;
+				} else {
+					System.out.printf("%d no es mayor o igual que %d, inténtalo de nuevo\n" , res, num);
+					isValid = false;
+				}
+				break;
+			case MINOR_OR_EQUAL:
+				if (res <= num) {
+					isValid = true;
+				} else {
+					System.out.printf("%d no es menor o igual que %d, inténtalo de nuevo\n" , res, num);
+					isValid = false;
+				}
+				break;
+			case GREATER:
+				if (res > num) {
+					isValid = true;
+				} else {
+					System.out.printf("%d no es mayor que %d, inténtalo de nuevo\n" , res, num);
+					isValid = false;
+				}
+				break;
+			case MINOR:
+				if (res < num) {
+					isValid = true;
+				} else {
+					System.out.printf("%d no es menor que %d, inténtalo de nuevo" , res, num);
+				}
+			}
+			
+		} while (!isValid);
+		
+		return res;
+	}
+	
+	//8.4. Tipo long
+	public static long readComparation(long num, Comparation comparation) {
+		long res;
+		boolean isValid = false;
+		
+		do {
+			System.out.printf("Introduce un número %s que %d" , comparation, num);
+			res = keyboard.nextLong();
+			
+			switch (comparation) {
+			case GREATER_OR_EQUAL:
+				if (res >= num) {
+					isValid = true;
+				} else {
+					System.out.printf("%d no es mayor o igual que %d, inténtalo de nuevo\n" , res, num);
+					isValid = false;
+				}
+				break;
+			case MINOR_OR_EQUAL:
+				if (res <= num) {
+					isValid = true;
+				} else {
+					System.out.printf("%d no es menor o igual que %d, inténtalo de nuevo\n" , res, num);
+					isValid = false;
+				}
+				break;
+			case GREATER:
+				if (res > num) {
+					isValid = true;
+				} else {
+					System.out.printf("%d no es mayor que %d, inténtalo de nuevo\n" , res, num);
+					isValid = false;
+				}
+				break;
+			case MINOR:
+				if (res < num) {
+					isValid = true;
+				} else {
+					System.out.printf("%d no es menor que %d, inténtalo de nuevo" , res, num);
+				}
+			}
+			
+		} while (!isValid);
+		
+		return res;
+	}
 		
 }
