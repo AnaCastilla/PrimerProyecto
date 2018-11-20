@@ -573,5 +573,19 @@ public class Keyboard {
 		
 		return res;
 	}
+	
+	/*
+	 * 9. Crear un enum para indicar que un valor mínimo y máximo pueden estar:
+	 * 	- ambos incluidos
+	 * 	- ambos excluidos
+	 * 	- el mínimo incluido y el máximo excluido
+	 * 	- el mínimo excluido y el máximo incluido
+	 */
+	
+	public static enum minMaxValues {
+		BOTH_INCLUDED, BOTH_EXCLUDED, MININC_MAXEXC, MINEXC_MAXINCL
+	}
+	
+	
 		
 }
