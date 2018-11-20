@@ -287,5 +287,103 @@ public class Keyboard {
 		GREATER_OR_EQUAL, MINOR_OR_EQUAL, GREATER, MINOR
 	}
 	
+	/*
+	 * 8. Lectura de un número que se comprobará mediante el enum introducido por parámetro si dicho número es 
+	 * 	  mayor, menor o igual que un número introducido por parámetro también
+	 * 	*** utilizar sobrecarga para que las funciones se llamen igual para todos los tipos ***
+	 * 		8.1. Tipo byte
+	 */
+	public static byte readComparation(byte num, Comparation comparation) {
+		byte res;
+		boolean isValid = false;
+		
+		do {
+			System.out.printf("Introduce un número %s que %d" , comparation, num);
+			res = keyboard.nextByte();
+			
+			switch (comparation) {
+			case GREATER_OR_EQUAL:
+				if (res >= num) {
+					isValid = true;
+				} else {
+					System.out.printf("%d no es mayor o igual que %d, inténtalo de nuevo\n" , res, num);
+					isValid = false;
+				}
+				break;
+			case MINOR_OR_EQUAL:
+				if (res <= num) {
+					isValid = true;
+				} else {
+					System.out.printf("%d no es menor o igual que %d, inténtalo de nuevo\n" , res, num);
+					isValid = false;
+				}
+				break;
+			case GREATER:
+				if (res > num) {
+					isValid = true;
+				} else {
+					System.out.printf("%d no es mayor que %d, inténtalo de nuevo\n" , res, num);
+					isValid = false;
+				}
+				break;
+			case MINOR:
+				if (res < num) {
+					isValid = true;
+				} else {
+					System.out.printf("%d no es menor que %d, inténtalo de nuevo" , res, num);
+				}
+			}
+			
+		} while (!isValid);
+		
+		return res;
+	}
+	
+	//8.2. Tipo short
+	public static short readComparation(short num, Comparation comparation) {
+		short res;
+		boolean isValid = false;
+		
+		do {
+			System.out.printf("Introduce un número %s que %d" , comparation, num);
+			res = keyboard.nextShort();
+			
+			switch (comparation) {
+			case GREATER_OR_EQUAL:
+				if (res >= num) {
+					isValid = true;
+				} else {
+					System.out.printf("%d no es mayor o igual que %d, inténtalo de nuevo\n" , res, num);
+					isValid = false;
+				}
+				break;
+			case MINOR_OR_EQUAL:
+				if (res <= num) {
+					isValid = true;
+				} else {
+					System.out.printf("%d no es menor o igual que %d, inténtalo de nuevo\n" , res, num);
+					isValid = false;
+				}
+				break;
+			case GREATER:
+				if (res > num) {
+					isValid = true;
+				} else {
+					System.out.printf("%d no es mayor que %d, inténtalo de nuevo\n" , res, num);
+					isValid = false;
+				}
+				break;
+			case MINOR:
+				if (res < num) {
+					isValid = true;
+				} else {
+					System.out.printf("%d no es menor que %d, inténtalo de nuevo" , res, num);
+				}
+			}
+			
+		} while (!isValid);
+		
+		return res;
+	}
 		
 }
