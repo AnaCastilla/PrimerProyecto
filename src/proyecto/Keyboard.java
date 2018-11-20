@@ -23,9 +23,9 @@ import java.util.Scanner;
 	 * 		4.6. Si elige la Respuesta 2, tendrá que introducir (2) y la función devolverá false
 	 * 5. Lectura de un boolean (s/n): se le pasa al usuario por parámetro una pregunta que deberá responder
 	 * 	  con 's', 'S', 'n' o 'N'.
-	 * 		5.1. Si responde 's' o 'S', la función devolverá true
-	 * 		5.2. Si responde 'n' o 'N', la función devolverá false
-	 * 		5.3. Si introduce otra cosa, se le vuelve a pedir
+	 * 	    5.1. Si introduce otra cosa, se le vuelve a pedir
+	 * 		5.2. Si responde 's' o 'S', la función devolverá true
+	 * 		5.3. Si responde 'n' o 'N', la función devolverá false
 	 * 	*** utilizar sobrecarga para que se llame igual que la función anterior (punto 4) ***
 	 * 6. Lectura de un número de:
 	 * 		6.1. Tipo byte
@@ -119,5 +119,31 @@ public class Keyboard {
 		 * 	4.6. Si elige la Respuesta 2, tendrá que introducir (2) y la función devolverá false
 		 */
 		return res = (elec == 1)?true:false;
+	}
+	
+	/*
+	 * 5. Lectura de un boolean (s/n): se le pasa al usuario por parámetro una pregunta que deberá responder
+	 * 	  con 's', 'S', 'n' o 'N'.
+	 * 	*** utilizar sobrecarga para que se llame igual que la función anterior (punto 4) ***
+	 */
+	
+	public static boolean readBoolean (String question) {
+		boolean res;
+		char elec;
+		
+		System.out.printf("%s (s/n)" , question);
+		
+		do {
+			elec = Character.toLowerCase(readChar());
+			//5.1. Si introduce otra cosa, se le vuelve a pedir
+			if (elec != 's' && elec != 'n') {
+				System.out.println("Error, tienes que introducir 's' o 'n', inténtalo de nuevo");
+			}
+		} while (elec != 's' && elec != 'n');
+		/*
+		 * 5.2. Si responde 's' o 'S', la función devolverá true
+		 * 5.3. Si responde 'n' o 'N', la función devolverá false
+		 */
+		return res = (elec == 's' || elec == 'S')?true:false;
 	}
 }
