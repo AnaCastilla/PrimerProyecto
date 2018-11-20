@@ -573,5 +573,330 @@ public class Keyboard {
 		
 		return res;
 	}
+	
+	/*
+	 * 9. Crear un enum para indicar que un valor mínimo y máximo pueden estar:
+	 * 	- ambos incluidos
+	 * 	- ambos excluidos
+	 * 	- el mínimo incluido y el máximo excluido
+	 * 	- el mínimo excluido y el máximo incluido
+	 */
+	
+	public static enum MinMaxValue {
+		BOTH_INCLUDED, BOTH_EXCLUDED, MININC_MAXEXC, MINEXC_MAXINCL
+	}
+	
+	/*
+	 * 10. Lectura de un número que debe estar entre un valor mínimo y un valor máximo que se pasarán como parámetros
+	 * 	-> Si el valor mínimo es mayor que el valor máximo, se lanza la excepción IllegalArgumentException
+	 * 	-> Ambos valores pueden ser iguales 
+	 * 	*** utilizar sobrecarga para que las funciones se llamen igual para todos los tipos ***
+	 * 		10.1. Tipo byte
+	 */
+	
+	public static byte readMinMaxValues(byte min, byte max, MinMaxValue minmaxvalue) {
+		byte res;
+		boolean isValid = false;
+		
+		if (min > max) {
+			throw new IllegalArgumentException("Error, el valor mínimo tiene que ser menor que el máximo");
+		}
+		
+		do {
+			System.out.printf("Introduce un número entre los valores %d y %d sabiendo que %s: ", min, max, minmaxvalue);
+			res = keyboard.nextByte();
+			
+			switch (minmaxvalue) {
+			case BOTH_INCLUDED:
+				if (res >= min && res <= max) {
+					isValid = true;
+				} else {
+					System.out.printf("%d no está entre los límites %d y %d, ambos incluidos\n", res, min, max);
+					isValid = false;
+				}
+				break;
+			case BOTH_EXCLUDED:
+				if (res > min && res < max) {
+					isValid = true;
+				} else {
+					System.out.printf("%d no está entre los límites %d y %d, ambos excluidos\n", res, min, max);
+				}
+				break;
+			case MINEXC_MAXINCL:
+				if (res > min && res <= max) {
+					isValid = true;
+				} else {
+					System.out.printf("%d no está entre los límites %d y %d, %d excluido y %d incluido", res, min, max, min, max);
+					isValid = false;
+				}
+				break;
+			case MININC_MAXEXC:
+				if (res >= min && res < max) {
+					isValid = true;
+				} else {
+					System.out.printf("%d no está entre los límites %d y %d, %d incluido y %d excluido", res, min, max, min, max);
+					isValid = false;
+				}
+				break;
+			}
+		} while (!isValid);
+		
+		return res;
+	}
+	
+	//10.2. Tipo short
+	public static short readMinMaxValues(short min, short max, MinMaxValue minmaxvalue) {
+		short res;
+		boolean isValid = false;
+		
+		if (min > max) {
+			throw new IllegalArgumentException("Error, el valor mínimo tiene que ser menor que el máximo");
+		}
+		
+		do {
+			System.out.printf("Introduce un número entre los valores %d y %d sabiendo que %s: ", min, max, minmaxvalue);
+			res = keyboard.nextShort();
+			
+			switch (minmaxvalue) {
+			case BOTH_INCLUDED:
+				if (res >= min && res <= max) {
+					isValid = true;
+				} else {
+					System.out.printf("%d no está entre los límites %d y %d, ambos incluidos\n", res, min, max);
+					isValid = false;
+				}
+				break;
+			case BOTH_EXCLUDED:
+				if (res > min && res < max) {
+					isValid = true;
+				} else {
+					System.out.printf("%d no está entre los límites %d y %d, ambos excluidos\n", res, min, max);
+				}
+				break;
+			case MINEXC_MAXINCL:
+				if (res > min && res <= max) {
+					isValid = true;
+				} else {
+					System.out.printf("%d no está entre los límites %d y %d, %d excluido y %d incluido", res, min, max, min, max);
+					isValid = false;
+				}
+				break;
+			case MININC_MAXEXC:
+				if (res >= min && res < max) {
+					isValid = true;
+				} else {
+					System.out.printf("%d no está entre los límites %d y %d, %d incluido y %d excluido", res, min, max, min, max);
+					isValid = false;
+				}
+				break;
+			}
+		} while (!isValid);
+		
+		return res;
+	}
+	
+	//10.3. Tipo int
+	public static int readMinMaxValues(int min, int max, MinMaxValue minmaxvalue) {
+		int res;
+		boolean isValid = false;
+		
+		if (min > max) {
+			throw new IllegalArgumentException("Error, el valor mínimo tiene que ser menor que el máximo");
+		}
+		
+		do {
+			System.out.printf("Introduce un número entre los valores %d y %d sabiendo que %s: ", min, max, minmaxvalue);
+			res = keyboard.nextInt();
+			
+			switch (minmaxvalue) {
+			case BOTH_INCLUDED:
+				if (res >= min && res <= max) {
+					isValid = true;
+				} else {
+					System.out.printf("%d no está entre los límites %d y %d, ambos incluidos\n", res, min, max);
+					isValid = false;
+				}
+				break;
+			case BOTH_EXCLUDED:
+				if (res > min && res < max) {
+					isValid = true;
+				} else {
+					System.out.printf("%d no está entre los límites %d y %d, ambos excluidos\n", res, min, max);
+				}
+				break;
+			case MINEXC_MAXINCL:
+				if (res > min && res <= max) {
+					isValid = true;
+				} else {
+					System.out.printf("%d no está entre los límites %d y %d, %d excluido y %d incluido", res, min, max, min, max);
+					isValid = false;
+				}
+				break;
+			case MININC_MAXEXC:
+				if (res >= min && res < max) {
+					isValid = true;
+				} else {
+					System.out.printf("%d no está entre los límites %d y %d, %d incluido y %d excluido", res, min, max, min, max);
+					isValid = false;
+				}
+				break;
+			}
+		} while (!isValid);
+		
+		return res;
+	}
+	
+	//10.4. Tipo long
+	public static long readMinMaxValues(long min, long max, MinMaxValue minmaxvalue) {
+		long res;
+		boolean isValid = false;
+		
+		if (min > max) {
+			throw new IllegalArgumentException("Error, el valor mínimo tiene que ser menor que el máximo");
+		}
+		
+		do {
+			System.out.printf("Introduce un número entre los valores %d y %d sabiendo que %s: ", min, max, minmaxvalue);
+			res = keyboard.nextLong();
+			
+			switch (minmaxvalue) {
+			case BOTH_INCLUDED:
+				if (res >= min && res <= max) {
+					isValid = true;
+				} else {
+					System.out.printf("%d no está entre los límites %d y %d, ambos incluidos\n", res, min, max);
+					isValid = false;
+				}
+				break;
+			case BOTH_EXCLUDED:
+				if (res > min && res < max) {
+					isValid = true;
+				} else {
+					System.out.printf("%d no está entre los límites %d y %d, ambos excluidos\n", res, min, max);
+				}
+				break;
+			case MINEXC_MAXINCL:
+				if (res > min && res <= max) {
+					isValid = true;
+				} else {
+					System.out.printf("%d no está entre los límites %d y %d, %d excluido y %d incluido", res, min, max, min, max);
+					isValid = false;
+				}
+				break;
+			case MININC_MAXEXC:
+				if (res >= min && res < max) {
+					isValid = true;
+				} else {
+					System.out.printf("%d no está entre los límites %d y %d, %d incluido y %d excluido", res, min, max, min, max);
+					isValid = false;
+				}
+				break;
+			}
+		} while (!isValid);
+		
+		return res;
+	}
+	
+	//10.5. Tipo float
+	public static float readMinMaxValues(float min, float max, MinMaxValue minmaxvalue) {
+		float res;
+		boolean isValid = false;
+		
+		if (min > max) {
+			throw new IllegalArgumentException("Error, el valor mínimo tiene que ser menor que el máximo");
+		}
+		
+		do {
+			System.out.printf("Introduce un número entre los valores %d y %d sabiendo que %s: ", min, max, minmaxvalue);
+			res = keyboard.nextFloat();
+			
+			switch (minmaxvalue) {
+			case BOTH_INCLUDED:
+				if (res >= min && res <= max) {
+					isValid = true;
+				} else {
+					System.out.printf("%d no está entre los límites %d y %d, ambos incluidos\n", res, min, max);
+					isValid = false;
+				}
+				break;
+			case BOTH_EXCLUDED:
+				if (res > min && res < max) {
+					isValid = true;
+				} else {
+					System.out.printf("%d no está entre los límites %d y %d, ambos excluidos\n", res, min, max);
+				}
+				break;
+			case MINEXC_MAXINCL:
+				if (res > min && res <= max) {
+					isValid = true;
+				} else {
+					System.out.printf("%d no está entre los límites %d y %d, %d excluido y %d incluido", res, min, max, min, max);
+					isValid = false;
+				}
+				break;
+			case MININC_MAXEXC:
+				if (res >= min && res < max) {
+					isValid = true;
+				} else {
+					System.out.printf("%d no está entre los límites %d y %d, %d incluido y %d excluido", res, min, max, min, max);
+					isValid = false;
+				}
+				break;
+			}
+		} while (!isValid);
+		
+		return res;
+	}
+	
+	//10.6. Tipo double
+	public static double readMinMaxValues(double min, double max, MinMaxValue minmaxvalue) {
+		double res;
+		boolean isValid = false;
+		
+		if (min > max) {
+			throw new IllegalArgumentException("Error, el valor mínimo tiene que ser menor que el máximo");
+		}
+		
+		do {
+			System.out.printf("Introduce un número entre los valores %d y %d sabiendo que %s: ", min, max, minmaxvalue);
+			res = keyboard.nextDouble();
+			
+			switch (minmaxvalue) {
+			case BOTH_INCLUDED:
+				if (res >= min && res <= max) {
+					isValid = true;
+				} else {
+					System.out.printf("%d no está entre los límites %d y %d, ambos incluidos\n", res, min, max);
+					isValid = false;
+				}
+				break;
+			case BOTH_EXCLUDED:
+				if (res > min && res < max) {
+					isValid = true;
+				} else {
+					System.out.printf("%d no está entre los límites %d y %d, ambos excluidos\n", res, min, max);
+				}
+				break;
+			case MINEXC_MAXINCL:
+				if (res > min && res <= max) {
+					isValid = true;
+				} else {
+					System.out.printf("%d no está entre los límites %d y %d, %d excluido y %d incluido", res, min, max, min, max);
+					isValid = false;
+				}
+				break;
+			case MININC_MAXEXC:
+				if (res >= min && res < max) {
+					isValid = true;
+				} else {
+					System.out.printf("%d no está entre los límites %d y %d, %d incluido y %d excluido", res, min, max, min, max);
+					isValid = false;
+				}
+				break;
+			}
+		} while (!isValid);
+		
+		return res;
+	}
 		
 }
