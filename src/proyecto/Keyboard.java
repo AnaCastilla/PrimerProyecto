@@ -78,6 +78,7 @@ public class Keyboard {
 	public static char readChar() {
 		char character;
 		
+		System.out.print("Introduce un carácter: ");
 		//charAt(0) cogerá el primer índice de lo que se haya introducido
 		character = keyboard.next().charAt(0);
 			
@@ -88,6 +89,7 @@ public class Keyboard {
 	public static String readString() {
 		String string;
 		
+		System.out.print("Introduce una cadena: ");
 		//al ser un nextLine se cogerá todo lo que se introduzca, ya sean letras, números, caracteres...
 		string = keyboard.nextLine();
 		
