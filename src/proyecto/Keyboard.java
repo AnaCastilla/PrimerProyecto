@@ -1,6 +1,8 @@
 package proyecto;
 
-	/*
+import java.util.Scanner;
+
+/*
 	 * Este proyecto se trata de crear métodos estáticos que serán invocados desde otras clases y proyectos para
 	 * leer los datos introducidos por teclado, con su correspondiente manejo de excepciones, más fácilmente y sin tener que
 	 * repetir la escritura de estas operaciones cada vez que queramos pedir dicho dato. 
@@ -66,4 +68,5 @@ package proyecto;
 
 public class Keyboard {
 
+	static Scanner keyboard = new Scanner(System.in);
 }
