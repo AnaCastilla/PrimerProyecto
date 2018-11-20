@@ -155,6 +155,7 @@ public class Keyboard {
 		
 		do {
 			try {
+				System.out.println("Introduce un número: ");
 				num = keyboard.nextByte();
 				isValid = true;
 			} catch (InputMismatchException e) {
@@ -163,7 +164,7 @@ public class Keyboard {
 			} finally {
 				keyboard.nextLine(); //Se limpia el buffer
 			}
-		} while (isValid);
+		} while (!isValid);
 		
 		return num;
 	}
@@ -175,6 +176,7 @@ public class Keyboard {
 		
 		do {
 			try {
+				System.out.println("Introduce un número: ");
 				num = keyboard.nextShort();
 				isValid = true;
 			} catch (InputMismatchException e) {
@@ -183,7 +185,7 @@ public class Keyboard {
 			} finally {
 				keyboard.nextLine(); //Se limpia el buffer
 			}
-		} while (isValid);
+		} while (!isValid);
 		
 		return num;
 	}
@@ -195,6 +197,7 @@ public class Keyboard {
 		
 		do {
 			try {
+				System.out.println("Introduce un número: ");
 				num = keyboard.nextInt();
 				isValid = true;
 			} catch (InputMismatchException e) {
@@ -203,7 +206,7 @@ public class Keyboard {
 			} finally {
 				keyboard.nextLine(); //Se limpia el buffer
 			}
-		} while (isValid);
+		} while (!isValid);
 		
 		return num;
 	}
@@ -215,6 +218,7 @@ public class Keyboard {
 		
 		do {
 			try {
+				System.out.println("Introduce un número: ");
 				num = keyboard.nextLong();
 				isValid = true;
 			} catch (InputMismatchException e) {
@@ -223,7 +227,7 @@ public class Keyboard {
 			} finally {
 				keyboard.nextLine(); //Se limpia el buffer
 			}
-		} while (isValid);
+		} while (!isValid);
 		
 		return num;
 	}
@@ -235,6 +239,7 @@ public class Keyboard {
 		
 		do {
 			try {
+				System.out.println("Introduce un número: ");
 				num = keyboard.nextFloat();
 				isValid = true;
 			} catch (InputMismatchException e) {
@@ -243,7 +248,7 @@ public class Keyboard {
 			} finally {
 				keyboard.nextLine(); //Se limpia el buffer
 			}
-		} while (isValid);
+		} while (!isValid);
 		
 		return num;
 	}
@@ -255,6 +260,7 @@ public class Keyboard {
 		
 		do {
 			try {
+				System.out.println("Introduce un número: ");
 				num = keyboard.nextDouble();
 				isValid = true;
 			} catch (InputMismatchException e) {
@@ -263,7 +269,7 @@ public class Keyboard {
 			} finally {
 				keyboard.nextLine(); //Se limpia el buffer
 			}
-		} while (isValid);
+		} while (!isValid);
 		
 		return num;
 	}
