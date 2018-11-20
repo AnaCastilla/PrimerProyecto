@@ -10,8 +10,12 @@ public class Main {
 		 */
 		
 		//Leer un carácter de tipo char
-		System.out.print("Introduzca un carácter: ");
-		System.out.println(Keyboard.readChar());
+		//System.out.print("Introduzca un carácter: ");
+		//System.out.println(Keyboard.readChar());
+		
+		//Lectura de un boolean
+		System.out.println(Keyboard.readBoolean("¿Cómo te llamas?", "Ana", "Maria"));
+		System.out.println(Keyboard.readBoolean("¿Estás estudiando?"));
 	}
 
 }
