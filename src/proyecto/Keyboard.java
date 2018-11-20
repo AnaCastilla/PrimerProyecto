@@ -1,5 +1,6 @@
 package proyecto;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /*
@@ -70,7 +71,20 @@ public class Keyboard {
 
 	static Scanner keyboard = new Scanner(System.in);
 	
+	//1. Cerrar el teclado
 	public static void closeKeyboard() {
 		keyboard.close();
+	}
+	
+	/*
+	 * 2. Leer un carácter de tipo char 
+	 * 	2.1. Si introduce otra cosa, se le vuelve a pedir
+	 */
+	public static char readChar() {
+		char character;
+	
+		character = keyboard.next().charAt(0);
+			
+		return character;
 	}
 }
