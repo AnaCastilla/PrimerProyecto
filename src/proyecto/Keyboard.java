@@ -188,6 +188,46 @@ public class Keyboard {
 		return num;
 	}
 	
+	//6.3. Tipo int
+	public static int readInt() {
+		int num = 0;
+		boolean isValid = false;
+		
+		do {
+			try {
+				num = keyboard.nextInt();
+				isValid = true;
+			} catch (InputMismatchException e) {
+				System.out.println("Error, inténtalo de nuevo");
+				isValid = false;
+			} finally {
+				keyboard.nextLine(); //Se limpia el buffer
+			}
+		} while (isValid);
+		
+		return num;
+	}
+	
+	//6.4. Tipo long
+	public static long readLong() {
+		long num = 0;
+		boolean isValid = false;
+		
+		do {
+			try {
+				num = keyboard.nextLong();
+				isValid = true;
+			} catch (InputMismatchException e) {
+				System.out.println("Error, inténtalo de nuevo");
+				isValid = false;
+			} finally {
+				keyboard.nextLine(); //Se limpia el buffer
+			}
+		} while (isValid);
+		
+		return num;
+	}
+	
 	
 		
 }
