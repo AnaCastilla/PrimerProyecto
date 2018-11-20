@@ -13,7 +13,6 @@ import java.util.Scanner;
 	 * 1. Cerrar el teclado
 	 * 2. Leer un carácter de tipo char 
 	 * 3. Leer una cadena de tipo String
-	 * 		3.1. Al ser un nextLine, se puede introducir cualquier cosa 
 	 * 4. Leer un boolean (1 o 2): se le pasa al usuario por parámetro tres mensajes:
 	 * 		4.1. Primer parámetro: pregunta o cuestión a responder
 	 * 		4.2. Segundo parámetro: 1. Respuesta 1
@@ -75,9 +74,7 @@ public class Keyboard {
 		keyboard.close();
 	}
 	
-	/*
-	 * 2. Leer un carácter de tipo char 
-	 */
+	//2. Leer un carácter de tipo char  
 	public static char readChar() {
 		char character;
 		
@@ -85,5 +82,15 @@ public class Keyboard {
 		character = keyboard.next().charAt(0);
 			
 		return character;
+	}
+	
+	//3. Leer una cadena de tipo String
+	public static String readString() {
+		String string;
+		
+		//al ser un nextLine se cogerá todo lo que se introduzca, ya sean letras, números, caracteres...
+		string = keyboard.nextLine();
+		
+		return string;
 	}
 }
