@@ -18,9 +18,9 @@ import java.util.Scanner;
 	 * 		4.2. Segundo parámetro: 1. Respuesta 1
 	 * 		4.3. Tercer parámetro: 2. Respuesta 2
 	 * 	  El segundo y tercer parámetro son las respuestas que el usuario responderá según guste:
-	 * 		4.4. Si elige la Respuesta 1, tendrá que introducir (1) y la función devolverá true
-	 * 		4.5. Si elige la Respuesta 2, tendrá que introducir (2) y la función devolverá false
-	 * 		4.6. Si no introduce ni 1 ni 2, se le vuelve a pedir
+	 *		4.4. Si no introduce ni 1 ni 2, se le vuelve a pedir
+	 * 		4.5. Si elige la Respuesta 1, tendrá que introducir (1) y la función devolverá true
+	 * 		4.6. Si elige la Respuesta 2, tendrá que introducir (2) y la función devolverá false
 	 * 5. Lectura de un boolean (s/n): se le pasa al usuario por parámetro una pregunta que deberá responder
 	 * 	  con 's', 'S', 'n' o 'N'.
 	 * 		5.1. Si responde 's' o 'S', la función devolverá true
@@ -92,5 +92,32 @@ public class Keyboard {
 		string = keyboard.nextLine();
 		
 		return string;
+	}
+	
+	/*
+	 * 4. Leer un boolean (1 o 2): se le pasa al usuario por parámetro tres mensajes:
+	 * 		4.1. Primer parámetro: pregunta o cuestión a responder
+	 * 		4.2. Segundo parámetro: 1. Respuesta 1
+	 * 		4.3. Tercer parámetro: 2. Respuesta 2
+	 * 	  El segundo y tercer parámetro son las respuestas que el usuario responderá según guste
+	 */
+	public static boolean readBoolean (String question, String answer1, String answer2) {
+		boolean res;
+		byte elec;
+		
+		System.out.printf("%s\n1. %s\n2. %s" , question, answer1, answer2);
+		
+		do {
+			elec = keyboard.nextByte();
+			//4.4. Si no introduce ni 1 ni 2, se le vuelve a pedir
+			if (elec != 1 && elec != 2) {
+				System.out.println("Error, tienes que introducir 1 o 2, inténtalo de nuevo");
+			}
+		} while (elec != 1 && elec != 2);
+		/*
+		 * 	4.5. Si elige la Respuesta 1, tendrá que introducir (1) y la función devolverá true
+		 * 	4.6. Si elige la Respuesta 2, tendrá que introducir (2) y la función devolverá false
+		 */
+		return res = (elec == 1)?true:false;
 	}
 }
