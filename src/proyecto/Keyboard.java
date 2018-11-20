@@ -298,7 +298,7 @@ public class Keyboard {
 		boolean isValid = false;
 		
 		do {
-			System.out.printf("Introduce un número %s que %d" , comparation, num);
+			System.out.printf("Introduce un número %s que %d: " , comparation, num);
 			res = keyboard.nextByte();
 			
 			switch (comparation) {
@@ -330,7 +330,7 @@ public class Keyboard {
 				if (res < num) {
 					isValid = true;
 				} else {
-					System.out.printf("%d no es menor que %d, inténtalo de nuevo" , res, num);
+					System.out.printf("%d no es menor que %d, inténtalo de nuevo\n" , res, num);
 				}
 			}
 			
@@ -345,7 +345,7 @@ public class Keyboard {
 		boolean isValid = false;
 		
 		do {
-			System.out.printf("Introduce un número %s que %d" , comparation, num);
+			System.out.printf("Introduce un número %s que %d: " , comparation, num);
 			res = keyboard.nextShort();
 			
 			switch (comparation) {
@@ -377,7 +377,7 @@ public class Keyboard {
 				if (res < num) {
 					isValid = true;
 				} else {
-					System.out.printf("%d no es menor que %d, inténtalo de nuevo" , res, num);
+					System.out.printf("%d no es menor que %d, inténtalo de nuevo\n" , res, num);
 				}
 			}
 			
@@ -392,7 +392,7 @@ public class Keyboard {
 		boolean isValid = false;
 		
 		do {
-			System.out.printf("Introduce un número %s que %d" , comparation, num);
+			System.out.printf("Introduce un número %s que %d: " , comparation, num);
 			res = keyboard.nextInt();
 			
 			switch (comparation) {
@@ -424,7 +424,7 @@ public class Keyboard {
 				if (res < num) {
 					isValid = true;
 				} else {
-					System.out.printf("%d no es menor que %d, inténtalo de nuevo" , res, num);
+					System.out.printf("%d no es menor que %d, inténtalo de nuevo\n" , res, num);
 				}
 			}
 			
@@ -439,7 +439,7 @@ public class Keyboard {
 		boolean isValid = false;
 		
 		do {
-			System.out.printf("Introduce un número %s que %d" , comparation, num);
+			System.out.printf("Introduce un número %s que %d: " , comparation, num);
 			res = keyboard.nextLong();
 			
 			switch (comparation) {
@@ -471,7 +471,7 @@ public class Keyboard {
 				if (res < num) {
 					isValid = true;
 				} else {
-					System.out.printf("%d no es menor que %d, inténtalo de nuevo" , res, num);
+					System.out.printf("%d no es menor que %d, inténtalo de nuevo\n" , res, num);
 				}
 			}
 			
@@ -486,7 +486,7 @@ public class Keyboard {
 		boolean isValid = false;
 		
 		do {
-			System.out.printf("Introduce un número %s que %d" , comparation, num);
+			System.out.printf("Introduce un número %s que %d: " , comparation, num);
 			res = keyboard.nextFloat();
 			
 			switch (comparation) {
@@ -518,7 +518,7 @@ public class Keyboard {
 				if (res < num) {
 					isValid = true;
 				} else {
-					System.out.printf("%d no es menor que %d, inténtalo de nuevo" , res, num);
+					System.out.printf("%d no es menor que %d, inténtalo de nuevo\n" , res, num);
 				}
 			}
 			
@@ -533,7 +533,7 @@ public class Keyboard {
 		boolean isValid = false;
 		
 		do {
-			System.out.printf("Introduce un número %s que %d" , comparation, num);
+			System.out.printf("Introduce un número %s que %d: " , comparation, num);
 			res = keyboard.nextDouble();
 			
 			switch (comparation) {
@@ -565,7 +565,7 @@ public class Keyboard {
 				if (res < num) {
 					isValid = true;
 				} else {
-					System.out.printf("%d no es menor que %d, inténtalo de nuevo" , res, num);
+					System.out.printf("%d no es menor que %d, inténtalo de nuevo\n" , res, num);
 				}
 			}
 			
