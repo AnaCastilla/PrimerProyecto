@@ -27,7 +27,7 @@ import java.util.Scanner;
 	 * 		5.2. Si responde 's' o 'S', la función devolverá true
 	 * 		5.3. Si responde 'n' o 'N', la función devolverá false
 	 * 	*** utilizar sobrecarga para que se llame igual que la función anterior (punto 4) ***
-	 * 6. Lectura de un número de:
+	 * 6. Lectura de un número. Si se sale del rango del tipo o se introduce otra cosa, se le vuelve a pedir.:
 	 * 		6.1. Tipo byte
 	 * 		6.2. Tipo short
 	 * 		6.3. Tipo int
@@ -145,4 +145,135 @@ public class Keyboard {
 		 */
 		return res = (elec == 's' || elec == 'S')?true:false;
 	}
+	
+	 /* 6. Lectura de un número. Si se sale del rango del tipo o se introduce otra cosa, se le vuelve a pedir.
+	 * 		6.1. Tipo byte
+	 */
+	public static byte readByte() {
+		byte num = 0;
+		boolean isValid = false;
+		
+		do {
+			try {
+				System.out.println("Introduce un número: ");
+				num = keyboard.nextByte();
+				isValid = true;
+			} catch (InputMismatchException e) {
+				System.out.println("Error, inténtalo de nuevo");
+				isValid = false;
+			} finally {
+				keyboard.nextLine(); //Se limpia el buffer
+			}
+		} while (!isValid);
+		
+		return num;
+	}
+	
+	//6.2. Tipo short
+	public static short readShort() {
+		short num = 0;
+		boolean isValid = false;
+		
+		do {
+			try {
+				System.out.println("Introduce un número: ");
+				num = keyboard.nextShort();
+				isValid = true;
+			} catch (InputMismatchException e) {
+				System.out.println("Error, inténtalo de nuevo");
+				isValid = false;
+			} finally {
+				keyboard.nextLine(); //Se limpia el buffer
+			}
+		} while (!isValid);
+		
+		return num;
+	}
+	
+	//6.3. Tipo int
+	public static int readInt() {
+		int num = 0;
+		boolean isValid = false;
+		
+		do {
+			try {
+				System.out.println("Introduce un número: ");
+				num = keyboard.nextInt();
+				isValid = true;
+			} catch (InputMismatchException e) {
+				System.out.println("Error, inténtalo de nuevo");
+				isValid = false;
+			} finally {
+				keyboard.nextLine(); //Se limpia el buffer
+			}
+		} while (!isValid);
+		
+		return num;
+	}
+	
+	//6.4. Tipo long
+	public static long readLong() {
+		long num = 0;
+		boolean isValid = false;
+		
+		do {
+			try {
+				System.out.println("Introduce un número: ");
+				num = keyboard.nextLong();
+				isValid = true;
+			} catch (InputMismatchException e) {
+				System.out.println("Error, inténtalo de nuevo");
+				isValid = false;
+			} finally {
+				keyboard.nextLine(); //Se limpia el buffer
+			}
+		} while (!isValid);
+		
+		return num;
+	}
+	
+	//6.5. Tipo float
+	public static float readFloat() {
+		float num = 0;
+		boolean isValid = false;
+		
+		do {
+			try {
+				System.out.println("Introduce un número: ");
+				num = keyboard.nextFloat();
+				isValid = true;
+			} catch (InputMismatchException e) {
+				System.out.println("Error, inténtalo de nuevo");
+				isValid = false;
+			} finally {
+				keyboard.nextLine(); //Se limpia el buffer
+			}
+		} while (!isValid);
+		
+		return num;
+	}
+	
+	//6.6. Tipo double
+	public static double readDouble() {
+		double num = 0;
+		boolean isValid = false;
+		
+		do {
+			try {
+				System.out.println("Introduce un número: ");
+				num = keyboard.nextDouble();
+				isValid = true;
+			} catch (InputMismatchException e) {
+				System.out.println("Error, inténtalo de nuevo");
+				isValid = false;
+			} finally {
+				keyboard.nextLine(); //Se limpia el buffer
+			}
+		} while (!isValid);
+		
+		return num;
+	}
+	
+	
+		
 }
