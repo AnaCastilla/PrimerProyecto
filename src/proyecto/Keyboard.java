@@ -276,6 +276,16 @@ public class Keyboard {
 		return num;
 	}
 	
+	/*
+	 * 7. Crear un enum para indicar que un número puede ser:
+	 * 	- mayor o igual
+	 * 	- menor o igual
+	 * 	- mayor 
+	 * 	- menor
+	 */
+	public static enum Comparation {
+		GREATER_OR_EQUAL, MINOR_OR_EQUAL, GREATER, MINOR
+	}
 	
 		
 }
