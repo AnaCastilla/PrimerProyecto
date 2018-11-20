@@ -228,6 +228,46 @@ public class Keyboard {
 		return num;
 	}
 	
+	//6.5. Tipo float
+	public static float readFloat() {
+		float num = 0;
+		boolean isValid = false;
+		
+		do {
+			try {
+				num = keyboard.nextFloat();
+				isValid = true;
+			} catch (InputMismatchException e) {
+				System.out.println("Error, inténtalo de nuevo");
+				isValid = false;
+			} finally {
+				keyboard.nextLine(); //Se limpia el buffer
+			}
+		} while (isValid);
+		
+		return num;
+	}
+	
+	//6.6. Tipo double
+	public static double readDouble() {
+		double num = 0;
+		boolean isValid = false;
+		
+		do {
+			try {
+				num = keyboard.nextDouble();
+				isValid = true;
+			} catch (InputMismatchException e) {
+				System.out.println("Error, inténtalo de nuevo");
+				isValid = false;
+			} finally {
+				keyboard.nextLine(); //Se limpia el buffer
+			}
+		} while (isValid);
+		
+		return num;
+	}
+	
 	
 		
 }
