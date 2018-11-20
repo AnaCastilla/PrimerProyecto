@@ -582,7 +582,7 @@ public class Keyboard {
 	 * 	- el mínimo excluido y el máximo incluido
 	 */
 	
-	public static enum MinMaxValues {
+	public static enum MinMaxValue {
 		BOTH_INCLUDED, BOTH_EXCLUDED, MININC_MAXEXC, MINEXC_MAXINCL
 	}
 	
@@ -594,7 +594,7 @@ public class Keyboard {
 	 * 		10.1. Tipo byte
 	 */
 	
-	public static byte readMinMaxValues(byte min, byte max, MinMaxValues enumValue) {
+	public static byte readMinMaxValues(byte min, byte max, MinMaxValue minmaxvalue) {
 		byte res;
 		boolean isValid = false;
 		
@@ -603,10 +603,10 @@ public class Keyboard {
 		}
 		
 		do {
-			System.out.printf("Introduce un número entre los valores %d y %d sabiendo que %s: ", min, max, enumValue);
+			System.out.printf("Introduce un número entre los valores %d y %d sabiendo que %s: ", min, max, minmaxvalue);
 			res = keyboard.nextByte();
 			
-			switch (enumValue) {
+			switch (minmaxvalue) {
 			case BOTH_INCLUDED:
 				if (res >= min && res <= max) {
 					isValid = true;
@@ -645,7 +645,7 @@ public class Keyboard {
 	}
 	
 	//10.2. Tipo short
-	public static short readMinMaxValues(short min, short max, MinMaxValues enumValue) {
+	public static short readMinMaxValues(short min, short max, MinMaxValue minmaxvalue) {
 		short res;
 		boolean isValid = false;
 		
@@ -654,10 +654,10 @@ public class Keyboard {
 		}
 		
 		do {
-			System.out.printf("Introduce un número entre los valores %d y %d sabiendo que %s: ", min, max, enumValue);
+			System.out.printf("Introduce un número entre los valores %d y %d sabiendo que %s: ", min, max, minmaxvalue);
 			res = keyboard.nextShort();
 			
-			switch (enumValue) {
+			switch (minmaxvalue) {
 			case BOTH_INCLUDED:
 				if (res >= min && res <= max) {
 					isValid = true;
@@ -696,7 +696,7 @@ public class Keyboard {
 	}
 	
 	//10.3. Tipo int
-	public static int readMinMaxValues(int min, int max, MinMaxValues enumValue) {
+	public static int readMinMaxValues(int min, int max, MinMaxValue minmaxvalue) {
 		int res;
 		boolean isValid = false;
 		
@@ -705,10 +705,10 @@ public class Keyboard {
 		}
 		
 		do {
-			System.out.printf("Introduce un número entre los valores %d y %d sabiendo que %s: ", min, max, enumValue);
+			System.out.printf("Introduce un número entre los valores %d y %d sabiendo que %s: ", min, max, minmaxvalue);
 			res = keyboard.nextInt();
 			
-			switch (enumValue) {
+			switch (minmaxvalue) {
 			case BOTH_INCLUDED:
 				if (res >= min && res <= max) {
 					isValid = true;
@@ -747,7 +747,7 @@ public class Keyboard {
 	}
 	
 	//10.4. Tipo long
-	public static long readMinMaxValues(long min, long max, MinMaxValues enumValue) {
+	public static long readMinMaxValues(long min, long max, MinMaxValue minmaxvalue) {
 		long res;
 		boolean isValid = false;
 		
@@ -756,10 +756,10 @@ public class Keyboard {
 		}
 		
 		do {
-			System.out.printf("Introduce un número entre los valores %d y %d sabiendo que %s: ", min, max, enumValue);
+			System.out.printf("Introduce un número entre los valores %d y %d sabiendo que %s: ", min, max, minmaxvalue);
 			res = keyboard.nextLong();
 			
-			switch (enumValue) {
+			switch (minmaxvalue) {
 			case BOTH_INCLUDED:
 				if (res >= min && res <= max) {
 					isValid = true;
@@ -798,7 +798,7 @@ public class Keyboard {
 	}
 	
 	//10.5. Tipo float
-	public static float readMinMaxValues(float min, float max, MinMaxValues enumValue) {
+	public static float readMinMaxValues(float min, float max, MinMaxValue minmaxvalue) {
 		float res;
 		boolean isValid = false;
 		
@@ -807,10 +807,10 @@ public class Keyboard {
 		}
 		
 		do {
-			System.out.printf("Introduce un número entre los valores %d y %d sabiendo que %s: ", min, max, enumValue);
+			System.out.printf("Introduce un número entre los valores %d y %d sabiendo que %s: ", min, max, minmaxvalue);
 			res = keyboard.nextFloat();
 			
-			switch (enumValue) {
+			switch (minmaxvalue) {
 			case BOTH_INCLUDED:
 				if (res >= min && res <= max) {
 					isValid = true;
@@ -849,7 +849,7 @@ public class Keyboard {
 	}
 	
 	//10.6. Tipo double
-	public static double readMinMaxValues(double min, double max, MinMaxValues enumValue) {
+	public static double readMinMaxValues(double min, double max, MinMaxValue minmaxvalue) {
 		double res;
 		boolean isValid = false;
 		
@@ -858,10 +858,10 @@ public class Keyboard {
 		}
 		
 		do {
-			System.out.printf("Introduce un número entre los valores %d y %d sabiendo que %s: ", min, max, enumValue);
+			System.out.printf("Introduce un número entre los valores %d y %d sabiendo que %s: ", min, max, minmaxvalue);
 			res = keyboard.nextDouble();
 			
-			switch (enumValue) {
+			switch (minmaxvalue) {
 			case BOTH_INCLUDED:
 				if (res >= min && res <= max) {
 					isValid = true;
