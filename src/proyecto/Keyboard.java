@@ -104,10 +104,9 @@ public class Keyboard {
 	public static boolean readBoolean (String question, String answer1, String answer2) {
 		boolean res;
 		byte elec;
-		
-		System.out.printf("%s\n1. %s\n2. %s" , question, answer1, answer2);
-		
+				
 		do {
+			System.out.printf("%s\n1. %s\n2. %s\n" , question, answer1, answer2);
 			elec = keyboard.nextByte();
 			//4.4. Si no introduce ni 1 ni 2, se le vuelve a pedir
 			if (elec != 1 && elec != 2) {
@@ -131,9 +130,9 @@ public class Keyboard {
 		boolean res;
 		char elec;
 		
-		System.out.printf("%s (s/n)" , question);
-		
 		do {
+			System.out.printf("%s (s/n): " , question);
+			//si se introduce en mayúscula, toLowerCase lo convertirá en minúscula
 			elec = Character.toLowerCase(readChar());
 			//5.1. Si introduce otra cosa, se le vuelve a pedir
 			if (elec != 's' && elec != 'n') {
