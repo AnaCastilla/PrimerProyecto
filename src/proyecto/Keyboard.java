@@ -626,7 +626,7 @@ public class Keyboard {
 				if (res > min && res <= max) {
 					isValid = true;
 				} else {
-					System.out.printf("%d no está entre los límites %d y %d, %d excluido y %d incluido", res, min, max, min, max);
+					System.out.printf("%d no está entre los límites %d y %d, %d excluido y %d incluido\n", res, min, max, min, max);
 					isValid = false;
 				}
 				break;
@@ -634,7 +634,7 @@ public class Keyboard {
 				if (res >= min && res < max) {
 					isValid = true;
 				} else {
-					System.out.printf("%d no está entre los límites %d y %d, %d incluido y %d excluido", res, min, max, min, max);
+					System.out.printf("%d no está entre los límites %d y %d, %d incluido y %d excluido\n", res, min, max, min, max);
 					isValid = false;
 				}
 				break;
@@ -677,7 +677,7 @@ public class Keyboard {
 				if (res > min && res <= max) {
 					isValid = true;
 				} else {
-					System.out.printf("%d no está entre los límites %d y %d, %d excluido y %d incluido", res, min, max, min, max);
+					System.out.printf("%d no está entre los límites %d y %d, %d excluido y %d incluido\n", res, min, max, min, max);
 					isValid = false;
 				}
 				break;
@@ -685,7 +685,7 @@ public class Keyboard {
 				if (res >= min && res < max) {
 					isValid = true;
 				} else {
-					System.out.printf("%d no está entre los límites %d y %d, %d incluido y %d excluido", res, min, max, min, max);
+					System.out.printf("%d no está entre los límites %d y %d, %d incluido y %d excluido\n", res, min, max, min, max);
 					isValid = false;
 				}
 				break;
@@ -728,7 +728,7 @@ public class Keyboard {
 				if (res > min && res <= max) {
 					isValid = true;
 				} else {
-					System.out.printf("%d no está entre los límites %d y %d, %d excluido y %d incluido", res, min, max, min, max);
+					System.out.printf("%d no está entre los límites %d y %d, %d excluido y %d incluido\n", res, min, max, min, max);
 					isValid = false;
 				}
 				break;
@@ -736,7 +736,7 @@ public class Keyboard {
 				if (res >= min && res < max) {
 					isValid = true;
 				} else {
-					System.out.printf("%d no está entre los límites %d y %d, %d incluido y %d excluido", res, min, max, min, max);
+					System.out.printf("%d no está entre los límites %d y %d, %d incluido y %d excluido\n", res, min, max, min, max);
 					isValid = false;
 				}
 				break;
@@ -779,7 +779,7 @@ public class Keyboard {
 				if (res > min && res <= max) {
 					isValid = true;
 				} else {
-					System.out.printf("%d no está entre los límites %d y %d, %d excluido y %d incluido", res, min, max, min, max);
+					System.out.printf("%d no está entre los límites %d y %d, %d excluido y %d incluido\n", res, min, max, min, max);
 					isValid = false;
 				}
 				break;
@@ -787,7 +787,7 @@ public class Keyboard {
 				if (res >= min && res < max) {
 					isValid = true;
 				} else {
-					System.out.printf("%d no está entre los límites %d y %d, %d incluido y %d excluido", res, min, max, min, max);
+					System.out.printf("%d no está entre los límites %d y %d, %d incluido y %d excluido\n", res, min, max, min, max);
 					isValid = false;
 				}
 				break;
@@ -807,7 +807,7 @@ public class Keyboard {
 		}
 		
 		do {
-			System.out.printf("Introduce un número entre los valores %d y %d sabiendo que %s: ", min, max, minmaxvalue);
+			System.out.printf("Introduce un número entre los valores %.4f y %.4f sabiendo que %s: ", min, max, minmaxvalue);
 			res = keyboard.nextFloat();
 			
 			switch (minmaxvalue) {
@@ -815,7 +815,7 @@ public class Keyboard {
 				if (res >= min && res <= max) {
 					isValid = true;
 				} else {
-					System.out.printf("%d no está entre los límites %d y %d, ambos incluidos\n", res, min, max);
+					System.out.printf("%.4f no está entre los límites %.4f y %.4f, ambos incluidos\n", res, min, max);
 					isValid = false;
 				}
 				break;
@@ -823,14 +823,14 @@ public class Keyboard {
 				if (res > min && res < max) {
 					isValid = true;
 				} else {
-					System.out.printf("%d no está entre los límites %d y %d, ambos excluidos\n", res, min, max);
+					System.out.printf("%.4f no está entre los límites %.4f y %.4f, ambos excluidos\n", res, min, max);
 				}
 				break;
 			case MINEXC_MAXINCL:
 				if (res > min && res <= max) {
 					isValid = true;
 				} else {
-					System.out.printf("%d no está entre los límites %d y %d, %d excluido y %d incluido", res, min, max, min, max);
+					System.out.printf("%.4f no está entre los límites %.4f y %.4f, %.4f excluido y %.4f incluido\n", res, min, max, min, max);
 					isValid = false;
 				}
 				break;
@@ -838,7 +838,7 @@ public class Keyboard {
 				if (res >= min && res < max) {
 					isValid = true;
 				} else {
-					System.out.printf("%d no está entre los límites %d y %d, %d incluido y %d excluido", res, min, max, min, max);
+					System.out.printf("%.4f no está entre los límites %.4f y %.4f, %.4f incluido y %.4f excluido\n", res, min, max, min, max);
 					isValid = false;
 				}
 				break;
@@ -858,7 +858,7 @@ public class Keyboard {
 		}
 		
 		do {
-			System.out.printf("Introduce un número entre los valores %d y %d sabiendo que %s: ", min, max, minmaxvalue);
+			System.out.printf("Introduce un número entre los valores %.4f y %.4f sabiendo que %s: ", min, max, minmaxvalue);
 			res = keyboard.nextDouble();
 			
 			switch (minmaxvalue) {
@@ -866,7 +866,7 @@ public class Keyboard {
 				if (res >= min && res <= max) {
 					isValid = true;
 				} else {
-					System.out.printf("%d no está entre los límites %d y %d, ambos incluidos\n", res, min, max);
+					System.out.printf("%.4f no está entre los límites %.4f y %.4f, ambos incluidos\n", res, min, max);
 					isValid = false;
 				}
 				break;
@@ -874,14 +874,14 @@ public class Keyboard {
 				if (res > min && res < max) {
 					isValid = true;
 				} else {
-					System.out.printf("%d no está entre los límites %d y %d, ambos excluidos\n", res, min, max);
+					System.out.printf("%.4f no está entre los límites %.4f y %.4f, ambos excluidos\n", res, min, max);
 				}
 				break;
 			case MINEXC_MAXINCL:
 				if (res > min && res <= max) {
 					isValid = true;
 				} else {
-					System.out.printf("%d no está entre los límites %d y %d, %d excluido y %d incluido", res, min, max, min, max);
+					System.out.printf("%.4f no está entre los límites %.4f y %.4f, %.4f excluido y %f incluido\n", res, min, max, min, max);
 					isValid = false;
 				}
 				break;
@@ -889,7 +889,7 @@ public class Keyboard {
 				if (res >= min && res < max) {
 					isValid = true;
 				} else {
-					System.out.printf("%d no está entre los límites %d y %d, %d incluido y %d excluido", res, min, max, min, max);
+					System.out.printf("%.4f no está entre los límites %.4f y %.4f, %.4f incluido y %.4f excluido\n", res, min, max, min, max);
 					isValid = false;
 				}
 				break;
