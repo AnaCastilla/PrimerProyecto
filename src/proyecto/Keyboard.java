@@ -11,9 +11,18 @@ import java.util.Scanner;
 	 * Los métodos a realizar son los siguientes:
 	 * 
 	 * 1. Cerrar el teclado
-	 * 2. Leer un carácter de tipo char 
-	 * 3. Leer una cadena de tipo String
-	 * 4. Leer un boolean (1 o 2): se le pasa al usuario por parámetro tres mensajes:
+	 * 
+	 * 2. Mostrar un mensaje al usuario con la petición del carácter
+	 * 	2.1. El usuario introduce el carácter
+	 * 	2.2. Comprobar si es un solo carácter
+	 * 		2.2.1. Si es más de un carácter, informar al usuario y se lo vuelvo a pedir
+	 * 		2.2.2. Si es uno, la función devuelve el carácter
+	 * 
+	 * 3. Mostrar un mensaje al usuario con la petición de una cadena
+	 * 	3.1. El usuario introduce la cadena
+	 * 	3.2. La función devuelve la cadena introducida
+	 * 
+	 * 4. El usuario tiene que introducir por parámetro tres mensajes:
 	 * 		4.1. Primer parámetro: pregunta o cuestión a responder
 	 * 		4.2. Segundo parámetro: 1. Respuesta 1
 	 * 		4.3. Tercer parámetro: 2. Respuesta 2
@@ -21,48 +30,54 @@ import java.util.Scanner;
 	 *		4.4. Si no introduce ni 1 ni 2, se le vuelve a pedir
 	 * 		4.5. Si elige la Respuesta 1, tendrá que introducir (1) y la función devolverá true
 	 * 		4.6. Si elige la Respuesta 2, tendrá que introducir (2) y la función devolverá false
-	 * 5. Lectura de un boolean (s/n): se le pasa al usuario por parámetro una pregunta que deberá responder
+	 * 
+	 * 5. El usuario tiene que introducir por parámetro una pregunta que deberá responder
 	 * 	  con 's', 'S', 'n' o 'N'.
 	 * 	    5.1. Si introduce otra cosa, se le vuelve a pedir
 	 * 		5.2. Si responde 's' o 'S', la función devolverá true
 	 * 		5.3. Si responde 'n' o 'N', la función devolverá false
 	 * 	*** utilizar sobrecarga para que se llame igual que la función anterior (punto 4) ***
-	 * 6. Lectura de un número. Si se sale del rango del tipo o se introduce otra cosa, se le vuelve a pedir.:
-	 * 		6.1. Tipo byte
-	 * 		6.2. Tipo short
-	 * 		6.3. Tipo int
-	 * 		6.4. Tipo long
-	 * 		6.5. Tipo float
-	 * 		6.6. Tipo double
-	 * 7. Crear un enum para indicar que un número puede ser:
+	 * 
+	 * -- LECTURA DE UN NÚMERO -- (este planteamiento vale para las siguientes 6 funciones)
+	 * 6. Mostrar un mensaje al usuario de que introduzca un número
+	 * 	6.1. El usuario introduce un número
+	 * 	6.2. Si introduce otra cosa o un número no válido, se le vuelve a pedir
+	 * 	6.3. Si el número es correcto, la función devuelve dicho número
+	 *  
+	 * Se crea un enum para indicar que un número puede ser:
 	 * 	- mayor o igual
 	 * 	- menor o igual
 	 * 	- mayor 
 	 * 	- menor
-	 * 8. Lectura de un número que se comprobará mediante el enum introducido por parámetro si dicho número es 
-	 * 	  mayor, menor o igual que un número introducido por parámetro también
+	 * 
+	 * -- LECTURA DE UN NÚMERO MAYOR, MENOR O IGUAL QUE UNO INTRODUCIDO POR PARÁMETRO -- (este planteamiento vale para las siguientes 6 funciones)
 	 * 	*** utilizar sobrecarga para que las funciones se llamen igual para todos los tipos ***
-	 * 		8.1. Tipo byte
-	 * 		8.2. Tipo short
-	 * 		8.3. Tipo int
-	 * 		8.4. Tipo long
-	 * 		8.5. Tipo float
-	 * 		8.6. Tipo double
-	 * 9. Crear un enum para indicar que un valor mínimo y máximo pueden estar:
+	 * 7. Se muestra un mensaje el cual le pide al usuario un número
+	 * 	7.1. El usuario introduce un número, el cual puede ser:
+	 * 		7.1.1. Mayor o igual que el número límite
+	 * 			7.1.1.1. Si cumple esto, la función devuelve dicho número
+	 * 			7.1.1.2. Si se introduce un número menor o que no es igual que el número límite, se le pedirá de nuevo
+	 * 		7.1.2. Menor o igual que el número límite
+	 *			7.1.2.1. Si cumple esto, la función devuelve dicho número
+	 * 			7.1.2.2. Si se introduce un número mayor o que no es igual que el número límite, se le pedirá de nuevo
+	 * 		7.1.3. Mayor que el número límite
+	 * 			7.1.3.1. Si cumple esto, la función devuelve dicho número
+	 * 			7.1.3.2. Si se introduce un número menor que el número límite, se le pedirá de nuevo
+	 * 		7.1.4. Menor que el número límite
+	 * 			7.1.4.1. Si cumple esto, la función devuelve dicho número
+	 * 			7.1.4.2. Si se introduce un número mayor que el número límite, se le pedirá de nuevo
+	 * 
+	 * Se crea un enum para indicar que un valor mínimo y máximo pueden estar:
 	 * 	- ambos incluidos
 	 * 	- ambos excluidos
 	 * 	- el mínimo incluido y el máximo excluido
 	 * 	- el mínimo excluido y el máximo incluido
-	 * 10. Lectura de un número que debe estar entre un valor mínimo y un valor máximo que se pasarán como parámetros
+	 * 
+	 * -- LECTURA DE UN NÚMERO SITUADO ENTRE UN VALOR MÍNIMO Y MÁXIMO INTRODUCIDOS POR PARÁMETRO -- (este planteamiento vale para las siguientes 6 funciones)
+	 * 8. Lectura de un número que debe estar entre un valor mínimo y un valor máximo que se pasarán como parámetros
 	 * 		-> Si el valor mínimo es mayor que el valor máximo, se lanza la excepción IllegalArgumentException
 	 * 		-> Ambos valores pueden ser iguales 
 	 * 	*** utilizar sobrecarga para que las funciones se llamen igual para todos los tipos ***
-	 * 		10.1. Tipo byte
-	 * 		10.2. Tipo short
-	 * 		10.3. Tipo int
-	 * 		10.4. Tipo long
-	 * 		10.5. Tipo float
-	 * 		10.6. Tipo double
 	 */
 
 public class Keyboard {
@@ -74,30 +89,60 @@ public class Keyboard {
 		keyboard.close();
 	}
 	
-	//2. Leer un carácter de tipo char  
+	/*
+	 * 2. Mostrar un mensaje al usuario con la petición del carácter
+	 * 	2.1. El usuario introduce el carácter
+	 * 	2.2. Comprobar si es un solo carácter
+	 * 		2.2.1. Si es más de un carácter, informar al usuario y se lo vuelvo a pedir
+	 * 		2.2.2. Si es uno, la función devuelve el carácter 
+	 */
 	public static char readChar() {
-		char character;
+		String char1;
+		char char2;
+		boolean exit = true;
 		
-		System.out.print("Introduce un carácter: ");
-		//charAt(0) cogerá el primer índice de lo que se haya introducido
-		character = keyboard.next().charAt(0);
-			
-		return character;
+		do {
+			//2. Mostrar un mensaje al usuario con la petición del carácter
+			System.out.print("Introduce un carácter: ");
+			//2.1. El usuario introduce el carácter
+			//char1 es String porque uso esa variable para usar el método length para comprobar si se ha introducido más de un carácter
+			//y en char2 se guardará el primer carácter de char1 con el método charAt
+			char1 = keyboard.next();
+			char2 = char1.charAt(0);
+			exit = true;
+			//2.2. Comprobar si es un solo carácter
+			if (char1.length() > 1) {
+				//2.2.1. Si es más de un carácter, informar al usuario y se lo vuelvo a pedir
+				System.out.println("Has introducido más de un carácter, inténtalo de nuevo");
+				exit = false;
+				keyboard.nextLine();
+			} 
+		} while (!exit);
+		
+		//2.2.2. Si es uno, la función devuelve el carácter 
+		return char2;
 	}
 	
-	//3. Leer una cadena de tipo String
+	/*
+	 * 3. Mostrar un mensaje al usuario con la petición de una cadena
+	 * 	3.1. El usuario introduce la cadena
+	 * 	3.2. La función devuelve la cadena introducida
+	 */
 	public static String readString() {
 		String string;
 		
+		//3. Mostrar un mensaje al usuario con la petición de una cadena
 		System.out.print("Introduce una cadena: ");
+		//3.1. El usuario introduce la cadena
 		//al ser un nextLine se cogerá todo lo que se introduzca, ya sean letras, números, caracteres...
 		string = keyboard.nextLine();
 		
+		//3.2. La función devuelve la cadena introducida
 		return string;
 	}
 	
 	/*
-	 * 4. Leer un boolean (1 o 2): se le pasa al usuario por parámetro tres mensajes:
+	 * 4. El usuario tiene que introducir por parámetro tres mensajes:
 	 * 		4.1. Primer parámetro: pregunta o cuestión a responder
 	 * 		4.2. Segundo parámetro: 1. Respuesta 1
 	 * 		4.3. Tercer parámetro: 2. Respuesta 2
@@ -123,8 +168,7 @@ public class Keyboard {
 	}
 	
 	/*
-	 * 5. Lectura de un boolean (s/n): se le pasa al usuario por parámetro una pregunta que deberá responder
-	 * 	  con 's', 'S', 'n' o 'N'.
+	 * 5. El usuario tiene que introducir por parámetro una pregunta que deberá responder con 's', 'S', 'n' o 'N'.
 	 * 	*** utilizar sobrecarga para que se llame igual que la función anterior (punto 4) ***
 	 */
 	
@@ -148,8 +192,12 @@ public class Keyboard {
 		return res = (elec == 's' || elec == 'S')?true:false;
 	}
 	
-	 /* 6. Lectura de un número. Si se sale del rango del tipo o se introduce otra cosa, se le vuelve a pedir.
-	 * 		6.1. Tipo byte
+	/*
+	 * 	 -- LECTURA DE UN NÚMERO -- (este planteamiento vale para las siguientes 6 funciones)
+	 * 6. Mostrar un mensaje al usuario de que introduzca un número
+	 * 	6.1. El usuario introduce un número
+	 * 	6.2. Si introduce otra cosa o un número no válido, se le vuelve a pedir
+	 * 	6.3. Si el número es correcto, la función devuelve dicho número
 	 */
 	public static byte readByte() {
 		byte num = 0;
@@ -157,9 +205,12 @@ public class Keyboard {
 		
 		do {
 			try {
+				//6. Mostrar un mensaje al usuario de que introduzca un número
 				System.out.println("Introduce un número: ");
+				//6.1. El usuario introduce un número
 				num = keyboard.nextByte();
 				isValid = true;
+			//6.2. Si introduce otra cosa o un número no válido, se le vuelve a pedir
 			} catch (InputMismatchException e) {
 				System.out.println("Error, inténtalo de nuevo");
 				isValid = false;
@@ -168,19 +219,22 @@ public class Keyboard {
 			}
 		} while (!isValid);
 		
+		//6.3. Si el número es correcto, la función devuelve dicho número
 		return num;
 	}
 	
-	//6.2. Tipo short
 	public static short readShort() {
 		short num = 0;
 		boolean isValid = false;
 		
 		do {
 			try {
+				//6. Mostrar un mensaje al usuario de que introduzca un número
 				System.out.println("Introduce un número: ");
+				//6.1. El usuario introduce un número
 				num = keyboard.nextShort();
 				isValid = true;
+			//6.2. Si introduce otra cosa o un número no válido, se le vuelve a pedir
 			} catch (InputMismatchException e) {
 				System.out.println("Error, inténtalo de nuevo");
 				isValid = false;
@@ -189,19 +243,22 @@ public class Keyboard {
 			}
 		} while (!isValid);
 		
+		//6.3. Si el número es correcto, la función devuelve dicho número
 		return num;
 	}
-	
-	//6.3. Tipo int
+
 	public static int readInt() {
 		int num = 0;
 		boolean isValid = false;
 		
 		do {
 			try {
+				//6. Mostrar un mensaje al usuario de que introduzca un número
 				System.out.println("Introduce un número: ");
+				//6.1. El usuario introduce un número
 				num = keyboard.nextInt();
 				isValid = true;
+			//6.2. Si introduce otra cosa o un número no válido, se le vuelve a pedir
 			} catch (InputMismatchException e) {
 				System.out.println("Error, inténtalo de nuevo");
 				isValid = false;
@@ -210,19 +267,22 @@ public class Keyboard {
 			}
 		} while (!isValid);
 		
+		//6.3. Si el número es correcto, la función devuelve dicho número
 		return num;
 	}
 	
-	//6.4. Tipo long
 	public static long readLong() {
 		long num = 0;
 		boolean isValid = false;
 		
 		do {
 			try {
+				//6. Mostrar un mensaje al usuario de que introduzca un número
 				System.out.println("Introduce un número: ");
+				//6.1. El usuario introduce un número
 				num = keyboard.nextLong();
 				isValid = true;
+			//6.2. Si introduce otra cosa o un número no válido, se le vuelve a pedir
 			} catch (InputMismatchException e) {
 				System.out.println("Error, inténtalo de nuevo");
 				isValid = false;
@@ -231,19 +291,22 @@ public class Keyboard {
 			}
 		} while (!isValid);
 		
+		//6.3. Si el número es correcto, la función devuelve dicho número
 		return num;
 	}
 	
-	//6.5. Tipo float
 	public static float readFloat() {
 		float num = 0;
 		boolean isValid = false;
 		
 		do {
 			try {
+				//6. Mostrar un mensaje al usuario de que introduzca un número
 				System.out.println("Introduce un número: ");
+				//6.1. El usuario introduce un número
 				num = keyboard.nextFloat();
 				isValid = true;
+			//6.2. Si introduce otra cosa o un número no válido, se le vuelve a pedir
 			} catch (InputMismatchException e) {
 				System.out.println("Error, inténtalo de nuevo");
 				isValid = false;
@@ -252,19 +315,22 @@ public class Keyboard {
 			}
 		} while (!isValid);
 		
+		//6.3. Si el número es correcto, la función devuelve dicho número
 		return num;
 	}
 	
-	//6.6. Tipo double
 	public static double readDouble() {
 		double num = 0;
 		boolean isValid = false;
 		
 		do {
 			try {
+				//6. Mostrar un mensaje al usuario de que introduzca un número
 				System.out.println("Introduce un número: ");
+				//6.1. El usuario introduce un número
 				num = keyboard.nextDouble();
 				isValid = true;
+			//6.2. Si introduce otra cosa o un número no válido, se le vuelve a pedir
 			} catch (InputMismatchException e) {
 				System.out.println("Error, inténtalo de nuevo");
 				isValid = false;
@@ -273,11 +339,12 @@ public class Keyboard {
 			}
 		} while (!isValid);
 		
+		//6.3. Si el número es correcto, la función devuelve dicho número
 		return num;
 	}
 	
 	/*
-	 * 7. Crear un enum para indicar que un número puede ser:
+	 * Se crea un enum para indicar que un número puede ser:
 	 * 	- mayor o igual
 	 * 	- menor o igual
 	 * 	- mayor 
@@ -288,47 +355,74 @@ public class Keyboard {
 	}
 	
 	/*
-	 * 8. Lectura de un número que se comprobará mediante el enum introducido por parámetro si dicho número es 
-	 * 	  mayor, menor o igual que un número introducido por parámetro también
+	 * -- LECTURA DE UN NÚMERO MAYOR, MENOR O IGUAL QUE UNO INTRODUCIDO POR PARÁMETRO -- (este planteamiento vale para las siguientes 6 funciones)
 	 * 	*** utilizar sobrecarga para que las funciones se llamen igual para todos los tipos ***
-	 * 		8.1. Tipo byte
+	 * 7. Se muestra un mensaje el cual le pide al usuario un número
+	 * 	7.1. El usuario introduce un número, el cual puede ser:
+	 * 		7.1.1. Mayor o igual que el número límite
+	 * 			7.1.1.1. Si cumple esto, la función devuelve dicho número
+	 * 			7.1.1.2. Si se introduce un número menor o que no es igual que el número límite, se le pedirá de nuevo
+	 * 		7.1.2. Menor o igual que el número límite
+	 *			7.1.2.1. Si cumple esto, la función devuelve dicho número
+	 * 			7.1.2.2. Si se introduce un número mayor o que no es igual que el número límite, se le pedirá de nuevo
+	 * 		7.1.3. Mayor que el número límite
+	 * 			7.1.3.1. Si cumple esto, la función devuelve dicho número
+	 * 			7.1.3.2. Si se introduce un número menor que el número límite, se le pedirá de nuevo
+	 * 		7.1.4. Menor que el número límite
+	 * 			7.1.4.1. Si cumple esto, la función devuelve dicho número
+	 * 			7.1.4.2. Si se introduce un número mayor que el número límite, se le pedirá de nuevo
+	 * 	
 	 */
 	public static byte readComparation(byte num, Comparation comparation) {
 		byte res;
 		boolean isValid = false;
 		
 		do {
+			//7. Se muestra un mensaje el cual le pide al usuario un número
 			System.out.printf("Introduce un número %s que %d: " , comparation, num);
+			//7.1. El usuario introduce un número, el cual puede ser:
 			res = keyboard.nextByte();
 			
 			switch (comparation) {
+			//7.1.1. Mayor o igual que el número límite
 			case GREATER_OR_EQUAL:
+				//7.1.1.1. Si cumple esto, la función devuelve dicho número
 				if (res >= num) {
-					isValid = true;
+					isValid = true; //al ser true, se sale del bucle y por lo tanto se hará el return con dicho número
+				//7.1.1.2. Si se introduce un número menor o que no es igual que el número límite, se le pedirá de nuevo
 				} else {
 					System.out.printf("%d no es mayor o igual que %d, inténtalo de nuevo\n" , res, num);
 					isValid = false;
 				}
 				break;
+			//7.1.2. Menor o igual que el número límite
 			case MINOR_OR_EQUAL:
+				//7.1.2.1. Si cumple esto, la función devuelve dicho número
 				if (res <= num) {
 					isValid = true;
+				//7.1.2.2. Si se introduce un número mayor o que no es igual que el número límite, se le pedirá de nuevo
 				} else {
 					System.out.printf("%d no es menor o igual que %d, inténtalo de nuevo\n" , res, num);
 					isValid = false;
 				}
 				break;
+			//7.1.3. Mayor que el número límite
 			case GREATER:
+				//7.1.3.1. Si cumple esto, la función devuelve dicho número
 				if (res > num) {
 					isValid = true;
+				//7.1.3.2. Si se introduce un número menor que el número límite, se le pedirá de nuevo
 				} else {
 					System.out.printf("%d no es mayor que %d, inténtalo de nuevo\n" , res, num);
 					isValid = false;
 				}
 				break;
+			//7.1.4. Menor que el número límite
 			case MINOR:
+				//7.1.4.1. Si cumple esto, la función devuelve dicho número
 				if (res < num) {
 					isValid = true;
+				//7.1.4.2. Si se introduce un número mayor que el número límite, se le pedirá de nuevo
 				} else {
 					System.out.printf("%d no es menor que %d, inténtalo de nuevo\n" , res, num);
 				}
@@ -339,43 +433,56 @@ public class Keyboard {
 		return res;
 	}
 	
-	//8.2. Tipo short
 	public static short readComparation(short num, Comparation comparation) {
 		short res;
 		boolean isValid = false;
 		
 		do {
+			//7. Se muestra un mensaje el cual le pide al usuario un número
 			System.out.printf("Introduce un número %s que %d: " , comparation, num);
+			//7.1. El usuario introduce un número, el cual puede ser:
 			res = keyboard.nextShort();
 			
 			switch (comparation) {
+			//7.1.1. Mayor o igual que el número límite
 			case GREATER_OR_EQUAL:
+				//7.1.1.1. Si cumple esto, la función devuelve dicho número
 				if (res >= num) {
-					isValid = true;
+					isValid = true; //al ser true, se sale del bucle y por lo tanto se hará el return con dicho número
+				//7.1.1.2. Si se introduce un número menor o que no es igual que el número límite, se le pedirá de nuevo
 				} else {
 					System.out.printf("%d no es mayor o igual que %d, inténtalo de nuevo\n" , res, num);
 					isValid = false;
 				}
 				break;
+			//7.1.2. Menor o igual que el número límite
 			case MINOR_OR_EQUAL:
+				//7.1.2.1. Si cumple esto, la función devuelve dicho número
 				if (res <= num) {
 					isValid = true;
+				//7.1.2.2. Si se introduce un número mayor o que no es igual que el número límite, se le pedirá de nuevo
 				} else {
 					System.out.printf("%d no es menor o igual que %d, inténtalo de nuevo\n" , res, num);
 					isValid = false;
 				}
 				break;
+			//7.1.3. Mayor que el número límite
 			case GREATER:
+				//7.1.3.1. Si cumple esto, la función devuelve dicho número
 				if (res > num) {
 					isValid = true;
+				//7.1.3.2. Si se introduce un número menor que el número límite, se le pedirá de nuevo
 				} else {
 					System.out.printf("%d no es mayor que %d, inténtalo de nuevo\n" , res, num);
 					isValid = false;
 				}
 				break;
+			//7.1.4. Menor que el número límite
 			case MINOR:
+				//7.1.4.1. Si cumple esto, la función devuelve dicho número
 				if (res < num) {
 					isValid = true;
+				//7.1.4.2. Si se introduce un número mayor que el número límite, se le pedirá de nuevo
 				} else {
 					System.out.printf("%d no es menor que %d, inténtalo de nuevo\n" , res, num);
 				}
@@ -385,44 +492,57 @@ public class Keyboard {
 		
 		return res;
 	}
-	
-	//8.3. Tipo int
+
 	public static int readComparation(int num, Comparation comparation) {
 		int res;
 		boolean isValid = false;
 		
 		do {
+			//7. Se muestra un mensaje el cual le pide al usuario un número
 			System.out.printf("Introduce un número %s que %d: " , comparation, num);
+			//7.1. El usuario introduce un número, el cual puede ser:
 			res = keyboard.nextInt();
 			
 			switch (comparation) {
+			//7.1.1. Mayor o igual que el número límite
 			case GREATER_OR_EQUAL:
+				//7.1.1.1. Si cumple esto, la función devuelve dicho número
 				if (res >= num) {
-					isValid = true;
+					isValid = true; //al ser true, se sale del bucle y por lo tanto se hará el return con dicho número
+				//7.1.1.2. Si se introduce un número menor o que no es igual que el número límite, se le pedirá de nuevo
 				} else {
 					System.out.printf("%d no es mayor o igual que %d, inténtalo de nuevo\n" , res, num);
 					isValid = false;
 				}
 				break;
+			//7.1.2. Menor o igual que el número límite
 			case MINOR_OR_EQUAL:
+				//7.1.2.1. Si cumple esto, la función devuelve dicho número
 				if (res <= num) {
 					isValid = true;
+				//7.1.2.2. Si se introduce un número mayor o que no es igual que el número límite, se le pedirá de nuevo
 				} else {
 					System.out.printf("%d no es menor o igual que %d, inténtalo de nuevo\n" , res, num);
 					isValid = false;
 				}
 				break;
+			//7.1.3. Mayor que el número límite
 			case GREATER:
+				//7.1.3.1. Si cumple esto, la función devuelve dicho número
 				if (res > num) {
 					isValid = true;
+				//7.1.3.2. Si se introduce un número menor que el número límite, se le pedirá de nuevo
 				} else {
 					System.out.printf("%d no es mayor que %d, inténtalo de nuevo\n" , res, num);
 					isValid = false;
 				}
 				break;
+			//7.1.4. Menor que el número límite
 			case MINOR:
+				//7.1.4.1. Si cumple esto, la función devuelve dicho número
 				if (res < num) {
 					isValid = true;
+				//7.1.4.2. Si se introduce un número mayor que el número límite, se le pedirá de nuevo
 				} else {
 					System.out.printf("%d no es menor que %d, inténtalo de nuevo\n" , res, num);
 				}
@@ -432,44 +552,57 @@ public class Keyboard {
 		
 		return res;
 	}
-	
-	//8.4. Tipo long
+
 	public static long readComparation(long num, Comparation comparation) {
 		long res;
 		boolean isValid = false;
 		
 		do {
+			//7. Se muestra un mensaje el cual le pide al usuario un número
 			System.out.printf("Introduce un número %s que %d: " , comparation, num);
+			//7.1. El usuario introduce un número, el cual puede ser:
 			res = keyboard.nextLong();
 			
 			switch (comparation) {
+			//7.1.1. Mayor o igual que el número límite
 			case GREATER_OR_EQUAL:
+				//7.1.1.1. Si cumple esto, la función devuelve dicho número
 				if (res >= num) {
-					isValid = true;
+					isValid = true; //al ser true, se sale del bucle y por lo tanto se hará el return con dicho número
+				//7.1.1.2. Si se introduce un número menor o que no es igual que el número límite, se le pedirá de nuevo
 				} else {
 					System.out.printf("%d no es mayor o igual que %d, inténtalo de nuevo\n" , res, num);
 					isValid = false;
 				}
 				break;
+			//7.1.2. Menor o igual que el número límite
 			case MINOR_OR_EQUAL:
+				//7.1.2.1. Si cumple esto, la función devuelve dicho número
 				if (res <= num) {
 					isValid = true;
+				//7.1.2.2. Si se introduce un número mayor o que no es igual que el número límite, se le pedirá de nuevo
 				} else {
 					System.out.printf("%d no es menor o igual que %d, inténtalo de nuevo\n" , res, num);
 					isValid = false;
 				}
 				break;
+			//7.1.3. Mayor que el número límite
 			case GREATER:
+				//7.1.3.1. Si cumple esto, la función devuelve dicho número
 				if (res > num) {
 					isValid = true;
+				//7.1.3.2. Si se introduce un número menor que el número límite, se le pedirá de nuevo
 				} else {
 					System.out.printf("%d no es mayor que %d, inténtalo de nuevo\n" , res, num);
 					isValid = false;
 				}
 				break;
+			//7.1.4. Menor que el número límite
 			case MINOR:
+				//7.1.4.1. Si cumple esto, la función devuelve dicho número
 				if (res < num) {
 					isValid = true;
+				//7.1.4.2. Si se introduce un número mayor que el número límite, se le pedirá de nuevo
 				} else {
 					System.out.printf("%d no es menor que %d, inténtalo de nuevo\n" , res, num);
 				}
@@ -480,43 +613,56 @@ public class Keyboard {
 		return res;
 	}
 	
-	//8.5. Tipo float
 	public static float readComparation(float num, Comparation comparation) {
 		float res;
 		boolean isValid = false;
 		
 		do {
+			//7. Se muestra un mensaje el cual le pide al usuario un número
 			System.out.printf("Introduce un número %s que %d: " , comparation, num);
+			//7.1. El usuario introduce un número, el cual puede ser:
 			res = keyboard.nextFloat();
 			
 			switch (comparation) {
+			//7.1.1. Mayor o igual que el número límite
 			case GREATER_OR_EQUAL:
+				//7.1.1.1. Si cumple esto, la función devuelve dicho número
 				if (res >= num) {
-					isValid = true;
+					isValid = true; //al ser true, se sale del bucle y por lo tanto se hará el return con dicho número
+				//7.1.1.2. Si se introduce un número menor o que no es igual que el número límite, se le pedirá de nuevo
 				} else {
 					System.out.printf("%d no es mayor o igual que %d, inténtalo de nuevo\n" , res, num);
 					isValid = false;
 				}
 				break;
+			//7.1.2. Menor o igual que el número límite
 			case MINOR_OR_EQUAL:
+				//7.1.2.1. Si cumple esto, la función devuelve dicho número
 				if (res <= num) {
 					isValid = true;
+				//7.1.2.2. Si se introduce un número mayor o que no es igual que el número límite, se le pedirá de nuevo
 				} else {
 					System.out.printf("%d no es menor o igual que %d, inténtalo de nuevo\n" , res, num);
 					isValid = false;
 				}
 				break;
+			//7.1.3. Mayor que el número límite
 			case GREATER:
+				//7.1.3.1. Si cumple esto, la función devuelve dicho número
 				if (res > num) {
 					isValid = true;
+				//7.1.3.2. Si se introduce un número menor que el número límite, se le pedirá de nuevo
 				} else {
 					System.out.printf("%d no es mayor que %d, inténtalo de nuevo\n" , res, num);
 					isValid = false;
 				}
 				break;
+			//7.1.4. Menor que el número límite
 			case MINOR:
+				//7.1.4.1. Si cumple esto, la función devuelve dicho número
 				if (res < num) {
 					isValid = true;
+				//7.1.4.2. Si se introduce un número mayor que el número límite, se le pedirá de nuevo
 				} else {
 					System.out.printf("%d no es menor que %d, inténtalo de nuevo\n" , res, num);
 				}
@@ -527,43 +673,56 @@ public class Keyboard {
 		return res;
 	}
 	
-	//8.6. Tipo double
 	public static double readComparation(double num, Comparation comparation) {
 		double res;
 		boolean isValid = false;
 		
 		do {
+			//7. Se muestra un mensaje el cual le pide al usuario un número
 			System.out.printf("Introduce un número %s que %d: " , comparation, num);
+			//7.1. El usuario introduce un número, el cual puede ser:
 			res = keyboard.nextDouble();
 			
 			switch (comparation) {
+			//7.1.1. Mayor o igual que el número límite
 			case GREATER_OR_EQUAL:
+				//7.1.1.1. Si cumple esto, la función devuelve dicho número
 				if (res >= num) {
-					isValid = true;
+					isValid = true; //al ser true, se sale del bucle y por lo tanto se hará el return con dicho número
+				//7.1.1.2. Si se introduce un número menor o que no es igual que el número límite, se le pedirá de nuevo
 				} else {
 					System.out.printf("%d no es mayor o igual que %d, inténtalo de nuevo\n" , res, num);
 					isValid = false;
 				}
 				break;
+			//7.1.2. Menor o igual que el número límite
 			case MINOR_OR_EQUAL:
+				//7.1.2.1. Si cumple esto, la función devuelve dicho número
 				if (res <= num) {
 					isValid = true;
+				//7.1.2.2. Si se introduce un número mayor o que no es igual que el número límite, se le pedirá de nuevo
 				} else {
 					System.out.printf("%d no es menor o igual que %d, inténtalo de nuevo\n" , res, num);
 					isValid = false;
 				}
 				break;
+			//7.1.3. Mayor que el número límite
 			case GREATER:
+				//7.1.3.1. Si cumple esto, la función devuelve dicho número
 				if (res > num) {
 					isValid = true;
+				//7.1.3.2. Si se introduce un número menor que el número límite, se le pedirá de nuevo
 				} else {
 					System.out.printf("%d no es mayor que %d, inténtalo de nuevo\n" , res, num);
 					isValid = false;
 				}
 				break;
+			//7.1.4. Menor que el número límite
 			case MINOR:
+				//7.1.4.1. Si cumple esto, la función devuelve dicho número
 				if (res < num) {
 					isValid = true;
+				//7.1.4.2. Si se introduce un número mayor que el número límite, se le pedirá de nuevo
 				} else {
 					System.out.printf("%d no es menor que %d, inténtalo de nuevo\n" , res, num);
 				}
@@ -575,7 +734,7 @@ public class Keyboard {
 	}
 	
 	/*
-	 * 9. Crear un enum para indicar que un valor mínimo y máximo pueden estar:
+	 * Se crea un enum para indicar que un valor mínimo y máximo pueden estar:
 	 * 	- ambos incluidos
 	 * 	- ambos excluidos
 	 * 	- el mínimo incluido y el máximo excluido
@@ -587,11 +746,10 @@ public class Keyboard {
 	}
 	
 	/*
-	 * 10. Lectura de un número que debe estar entre un valor mínimo y un valor máximo que se pasarán como parámetros
+	 *  Lectura de un número que debe estar entre un valor mínimo y un valor máximo que se pasarán como parámetros
 	 * 	-> Si el valor mínimo es mayor que el valor máximo, se lanza la excepción IllegalArgumentException
 	 * 	-> Ambos valores pueden ser iguales 
 	 * 	*** utilizar sobrecarga para que las funciones se llamen igual para todos los tipos ***
-	 * 		10.1. Tipo byte
 	 */
 	
 	public static byte readMinMaxValues(byte min, byte max, MinMaxValue minmaxvalue) {
@@ -644,7 +802,6 @@ public class Keyboard {
 		return res;
 	}
 	
-	//10.2. Tipo short
 	public static short readMinMaxValues(short min, short max, MinMaxValue minmaxvalue) {
 		short res;
 		boolean isValid = false;
@@ -695,7 +852,6 @@ public class Keyboard {
 		return res;
 	}
 	
-	//10.3. Tipo int
 	public static int readMinMaxValues(int min, int max, MinMaxValue minmaxvalue) {
 		int res;
 		boolean isValid = false;
@@ -746,7 +902,6 @@ public class Keyboard {
 		return res;
 	}
 	
-	//10.4. Tipo long
 	public static long readMinMaxValues(long min, long max, MinMaxValue minmaxvalue) {
 		long res;
 		boolean isValid = false;
@@ -797,7 +952,6 @@ public class Keyboard {
 		return res;
 	}
 	
-	//10.5. Tipo float
 	public static float readMinMaxValues(float min, float max, MinMaxValue minmaxvalue) {
 		float res;
 		boolean isValid = false;
@@ -848,7 +1002,6 @@ public class Keyboard {
 		return res;
 	}
 	
-	//10.6. Tipo double
 	public static double readMinMaxValues(double min, double max, MinMaxValue minmaxvalue) {
 		double res;
 		boolean isValid = false;

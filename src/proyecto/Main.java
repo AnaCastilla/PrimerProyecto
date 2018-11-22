@@ -13,7 +13,6 @@ public class Main {
 		 */
 		
 		//Leer un carácter de tipo char
-		//System.out.print("Introduzca un carácter: ");
 		//System.out.println(Keyboard.readChar());
 		
 		//Lectura de un boolean
@@ -21,8 +20,8 @@ public class Main {
 		//System.out.println(Keyboard.readBoolean("¿Estás estudiando?"));
 		
 		//Lectura de un número
-		/*System.out.println("Número byte: ");
 		System.out.println(Keyboard.readByte());
+		/*
 		System.out.println("Número short: ");
 		System.out.println(Keyboard.readShort());
 		System.out.println("Número int: ");
@@ -45,8 +44,8 @@ public class Main {
 		System.out.println(Keyboard.readMinMaxValues(50, 200, MinMaxValue.MINEXC_MAXINCL));
 		System.out.println(Keyboard.readMinMaxValues(489465, 9867498, MinMaxValue.MININC_MAXEXC));
 		System.out.println(Keyboard.readMinMaxValues(897986, 998748, MinMaxValue.BOTH_EXCLUDED));*/
-		System.out.println(Keyboard.readMinMaxValues(78.89, 98.65, MinMaxValue.BOTH_INCLUDED));
-		System.out.println(Keyboard.readMinMaxValues(894.65, 9547.78, MinMaxValue.BOTH_INCLUDED));
+		/*System.out.println(Keyboard.readMinMaxValues(78.89, 98.65, MinMaxValue.BOTH_INCLUDED));
+		System.out.println(Keyboard.readMinMaxValues(894.65, 9547.78, MinMaxValue.BOTH_INCLUDED));*/
 		
 	}
 }
