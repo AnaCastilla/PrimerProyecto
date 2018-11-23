@@ -22,24 +22,19 @@ import java.util.Scanner;
 	 * 	3.1. El usuario introduce la cadena
 	 * 	3.2. La función devuelve la cadena introducida
 	 * 
-	 * 4. El usuario tiene que introducir por parámetro tres mensajes:
-	 * 		4.1. Primer parámetro: pregunta o cuestión a responder
-	 * 		4.2. Segundo parámetro: 1. Respuesta 1
-	 * 		4.3. Tercer parámetro: 2. Respuesta 2
-	 * 	  El segundo y tercer parámetro son las respuestas que el usuario responderá según guste:
+	 * 4. El usuario tiene que responder a una pregunta introduciendo 1 o 2 
 	 *		4.4. Si no introduce ni 1 ni 2, se le vuelve a pedir
 	 * 		4.5. Si elige la Respuesta 1, tendrá que introducir (1) y la función devolverá true
 	 * 		4.6. Si elige la Respuesta 2, tendrá que introducir (2) y la función devolverá false
 	 * 
-	 * 5. El usuario tiene que introducir por parámetro una pregunta que deberá responder
-	 * 	  con 's', 'S', 'n' o 'N'.
+	 * 5. El usuario tiene que responder una pregunta introduciendo 's', 'S', 'n' o 'N'.
 	 * 	    5.1. Si introduce otra cosa, se le vuelve a pedir
 	 * 		5.2. Si responde 's' o 'S', la función devolverá true
 	 * 		5.3. Si responde 'n' o 'N', la función devolverá false
 	 * 	*** utilizar sobrecarga para que se llame igual que la función anterior (punto 4) ***
 	 * 
 	 * -- LECTURA DE UN NÚMERO -- (este planteamiento vale para las siguientes 6 funciones)
-	 * 6. Mostrar un mensaje al usuario de que introduzca un número
+	 * 6. Mostrar un mensaje al usuario de que introduzca un número 
 	 * 	6.1. El usuario introduce un número
 	 * 	6.2. Si introduce otra cosa o un número no válido, se le vuelve a pedir
 	 * 	6.3. Si el número es correcto, la función devuelve dicho número
@@ -74,10 +69,23 @@ import java.util.Scanner;
 	 * 	- el mínimo excluido y el máximo incluido
 	 * 
 	 * -- LECTURA DE UN NÚMERO SITUADO ENTRE UN VALOR MÍNIMO Y MÁXIMO INTRODUCIDOS POR PARÁMETRO -- (este planteamiento vale para las siguientes 6 funciones)
-	 * 8. Lectura de un número que debe estar entre un valor mínimo y un valor máximo que se pasarán como parámetros
-	 * 		-> Si el valor mínimo es mayor que el valor máximo, se lanza la excepción IllegalArgumentException
-	 * 		-> Ambos valores pueden ser iguales 
+	 * 	-> Si el valor mínimo es mayor que el valor máximo, no se ejecutará el programa
+	 * 	-> Ambos valores pueden ser iguales 
 	 * 	*** utilizar sobrecarga para que las funciones se llamen igual para todos los tipos ***
+	 * 8. Se muestra al usuario un mensaje para que introduzca un número situado entre un valor mínimo y máximo
+	 * 	8.1. El usuario introduce el número, el cual puede estar:
+	 * 		8.1.1. Entre el valor mínimo y el máximo, ambos incluidos
+	 * 			8.1.1.1. Si cumple esto, la función devuelve dicho número
+	 * 			8.1.1.2. Si no lo cumple, se le vuelve a pedir que introduzca otra vez un número
+	 * 		8.1.2. Entre el valor mínimo y el máximo, ambos excluidos
+	 * 			8.1.2.1. Si cumple esto, la función devuelve dicho número
+	 * 			8.1.2.2. Si no lo cumple, se le vuelve a pedir que introduzca otra vez un número
+	 * 		8.1.3. Entre el valor mínimo (excluido) y el máximo (incluido)
+	 * 			8.1.3.1. Si cumple esto, la función devuelve dicho número
+	 * 			8.1.3.2. Si no lo cumple, se le vuelve a pedir que introduzca otra vez un número
+	 * 		8.1.4. Entre el valor mínimo (incluido) y el máximo (excluido)
+	 * 	 		8.1.4.1. Si cumple esto, la función devuelve dicho número
+	 * 			8.1.4.2. Si no lo cumple, se le vuelve a pedir que introduzca otra vez un número
 	 */
 
 public class Keyboard {
@@ -142,17 +150,17 @@ public class Keyboard {
 	}
 	
 	/*
-	 * 4. El usuario tiene que introducir por parámetro tres mensajes:
-	 * 		4.1. Primer parámetro: pregunta o cuestión a responder
-	 * 		4.2. Segundo parámetro: 1. Respuesta 1
-	 * 		4.3. Tercer parámetro: 2. Respuesta 2
-	 * 	  El segundo y tercer parámetro son las respuestas que el usuario responderá según guste
+	 * 4. El usuario tiene que responder a una pregunta introduciendo 1 o 2 
+	 *	4.4. Si no introduce ni 1 ni 2, se le vuelve a pedir
+	 * 	4.5. Si elige la Respuesta 1, tendrá que introducir (1) y la función devolverá true
+	 * 	4.6. Si elige la Respuesta 2, tendrá que introducir (2) y la función devolverá false
 	 */
 	public static boolean readBoolean (String question, String answer1, String answer2) {
 		boolean res;
 		byte elec;
 				
 		do {
+			//4. El usuario tiene que responder a una pregunta introduciendo 1 o 2 
 			System.out.printf("%s\n1. %s\n2. %s\n" , question, answer1, answer2);
 			elec = keyboard.nextByte();
 			//4.4. Si no introduce ni 1 ni 2, se le vuelve a pedir
@@ -168,8 +176,10 @@ public class Keyboard {
 	}
 	
 	/*
-	 * 5. El usuario tiene que introducir por parámetro una pregunta que deberá responder con 's', 'S', 'n' o 'N'.
-	 * 	*** utilizar sobrecarga para que se llame igual que la función anterior (punto 4) ***
+	 * 5. El usuario tiene que responder una pregunta introduciendo 's', 'S', 'n' o 'N'.
+	 * 	5.1. Si introduce otra cosa, se le vuelve a pedir
+	 * 	5.2. Si responde 's' o 'S', la función devolverá true
+	 * 	5.3. Si responde 'n' o 'N', la función devolverá false
 	 */
 	
 	public static boolean readBoolean (String question) {
@@ -177,6 +187,7 @@ public class Keyboard {
 		char elec;
 		
 		do {
+			//5. El usuario tiene que responder una pregunta introduciendo 's', 'S', 'n' o 'N'.
 			System.out.printf("%s (s/n): " , question);
 			//si se introduce en mayúscula, toLowerCase lo convertirá en minúscula
 			elec = Character.toLowerCase(readChar());
@@ -746,51 +757,81 @@ public class Keyboard {
 	}
 	
 	/*
-	 *  Lectura de un número que debe estar entre un valor mínimo y un valor máximo que se pasarán como parámetros
-	 * 	-> Si el valor mínimo es mayor que el valor máximo, se lanza la excepción IllegalArgumentException
+	 * -- LECTURA DE UN NÚMERO SITUADO ENTRE UN VALOR MÍNIMO Y MÁXIMO INTRODUCIDOS POR PARÁMETRO -- (este planteamiento vale para las siguientes 6 funciones)
+	 * 	-> Si el valor mínimo es mayor que el valor máximo, no se ejecutará el programa
 	 * 	-> Ambos valores pueden ser iguales 
 	 * 	*** utilizar sobrecarga para que las funciones se llamen igual para todos los tipos ***
+	 * 8. Se muestra al usuario un mensaje para que introduzca un número situado entre un valor mínimo y máximo
+	 * 	8.1. El usuario introduce el número, el cual puede estar:
+	 * 		8.1.1. Entre el valor mínimo y el máximo, ambos incluidos
+	 * 			8.1.1.1. Si cumple esto, la función devuelve dicho número
+	 * 			8.1.1.2. Si no lo cumple, se le vuelve a pedir que introduzca otra vez un número
+	 * 		8.1.2. Entre el valor mínimo y el máximo, ambos excluidos
+	 * 			8.1.2.1. Si cumple esto, la función devuelve dicho número
+	 * 			8.1.2.2. Si no lo cumple, se le vuelve a pedir que introduzca otra vez un número
+	 * 		8.1.3. Entre el valor mínimo (excluido) y el máximo (incluido)
+	 * 			8.1.3.1. Si cumple esto, la función devuelve dicho número
+	 * 			8.1.3.2. Si no lo cumple, se le vuelve a pedir que introduzca otra vez un número
+	 * 		8.1.4. Entre el valor mínimo (incluido) y el máximo (excluido)
+	 * 	 		8.1.4.1. Si cumple esto, la función devuelve dicho número
+	 * 			8.1.4.2. Si no lo cumple, se le vuelve a pedir que introduzca otra vez un número
 	 */
 	
 	public static byte readMinMaxValues(byte min, byte max, MinMaxValue minmaxvalue) {
 		byte res;
 		boolean isValid = false;
 		
+		//si el valor mínimo es mayor que el máximo, se lanza esta excepción que se controlará en el main 
 		if (min > max) {
-			throw new IllegalArgumentException("Error, el valor mínimo tiene que ser menor que el máximo");
+			throw new IllegalArgumentException("Error, el valor mínimo tiene que ser menor que el máximo, hacer un try catch para controlarlo");
 		}
 		
 		do {
+			//8. Se muestra al usuario un mensaje para que introduzca un número situado entre un valor mínimo y máximo
 			System.out.printf("Introduce un número entre los valores %d y %d sabiendo que %s: ", min, max, minmaxvalue);
+			//8.1. El usuario introduce el número, el cual puede estar:
 			res = keyboard.nextByte();
 			
 			switch (minmaxvalue) {
+			//8.1.1. Entre el valor mínimo y el máximo, ambos incluidos
 			case BOTH_INCLUDED:
+				//8.1.1.1. Si cumple esto, la función devuelve dicho número
 				if (res >= min && res <= max) {
 					isValid = true;
+				//8.1.1.2. Si no lo cumple, se le vuelve a pedir que introduzca otra vez un número
 				} else {
 					System.out.printf("%d no está entre los límites %d y %d, ambos incluidos\n", res, min, max);
 					isValid = false;
 				}
 				break;
+			//8.1.2. Entre el valor mínimo y el máximo, ambos excluidos
 			case BOTH_EXCLUDED:
+				//8.1.2.1. Si cumple esto, la función devuelve dicho número
 				if (res > min && res < max) {
 					isValid = true;
+				//8.1.2.2. Si no lo cumple, se le vuelve a pedir que introduzca otra vez un número
 				} else {
 					System.out.printf("%d no está entre los límites %d y %d, ambos excluidos\n", res, min, max);
+					isValid = false;
 				}
 				break;
+			//8.1.3. Entre el valor mínimo (excluido) y el máximo (incluido)
 			case MINEXC_MAXINCL:
+				//8.1.3.1. Si cumple esto, la función devuelve dicho número
 				if (res > min && res <= max) {
 					isValid = true;
+				//8.1.3.2. Si no lo cumple, se le vuelve a pedir que introduzca otra vez un número
 				} else {
 					System.out.printf("%d no está entre los límites %d y %d, %d excluido y %d incluido\n", res, min, max, min, max);
 					isValid = false;
 				}
 				break;
+			//8.1.4. Entre el valor mínimo (incluido) y el máximo (excluido)
 			case MININC_MAXEXC:
+				//8.1.4.1. Si cumple esto, la función devuelve dicho número
 				if (res >= min && res < max) {
 					isValid = true;
+				//8.1.4.2. Si no lo cumple, se le vuelve a pedir que introduzca otra vez un número
 				} else {
 					System.out.printf("%d no está entre los límites %d y %d, %d incluido y %d excluido\n", res, min, max, min, max);
 					isValid = false;
@@ -811,36 +852,51 @@ public class Keyboard {
 		}
 		
 		do {
+			//8. Se muestra al usuario un mensaje para que introduzca un número situado entre un valor mínimo y máximo
 			System.out.printf("Introduce un número entre los valores %d y %d sabiendo que %s: ", min, max, minmaxvalue);
+			//8.1. El usuario introduce el número, el cual puede estar:
 			res = keyboard.nextShort();
 			
 			switch (minmaxvalue) {
+			//8.1.1. Entre el valor mínimo y el máximo, ambos incluidos
 			case BOTH_INCLUDED:
+				//8.1.1.1. Si cumple esto, la función devuelve dicho número
 				if (res >= min && res <= max) {
 					isValid = true;
+				//8.1.1.2. Si no lo cumple, se le vuelve a pedir que introduzca otra vez un número
 				} else {
 					System.out.printf("%d no está entre los límites %d y %d, ambos incluidos\n", res, min, max);
 					isValid = false;
 				}
 				break;
+			//8.1.2. Entre el valor mínimo y el máximo, ambos excluidos
 			case BOTH_EXCLUDED:
+				//8.1.2.1. Si cumple esto, la función devuelve dicho número
 				if (res > min && res < max) {
 					isValid = true;
+				//8.1.2.2. Si no lo cumple, se le vuelve a pedir que introduzca otra vez un número
 				} else {
 					System.out.printf("%d no está entre los límites %d y %d, ambos excluidos\n", res, min, max);
+					isValid = false;
 				}
 				break;
+			//8.1.3. Entre el valor mínimo (excluido) y el máximo (incluido)
 			case MINEXC_MAXINCL:
+				//8.1.3.1. Si cumple esto, la función devuelve dicho número
 				if (res > min && res <= max) {
 					isValid = true;
+				//8.1.3.2. Si no lo cumple, se le vuelve a pedir que introduzca otra vez un número
 				} else {
 					System.out.printf("%d no está entre los límites %d y %d, %d excluido y %d incluido\n", res, min, max, min, max);
 					isValid = false;
 				}
 				break;
+			//8.1.4. Entre el valor mínimo (incluido) y el máximo (excluido)
 			case MININC_MAXEXC:
+				//8.1.4.1. Si cumple esto, la función devuelve dicho número
 				if (res >= min && res < max) {
 					isValid = true;
+				//8.1.4.2. Si no lo cumple, se le vuelve a pedir que introduzca otra vez un número
 				} else {
 					System.out.printf("%d no está entre los límites %d y %d, %d incluido y %d excluido\n", res, min, max, min, max);
 					isValid = false;
@@ -861,36 +917,51 @@ public class Keyboard {
 		}
 		
 		do {
+			//8. Se muestra al usuario un mensaje para que introduzca un número situado entre un valor mínimo y máximo
 			System.out.printf("Introduce un número entre los valores %d y %d sabiendo que %s: ", min, max, minmaxvalue);
+			//8.1. El usuario introduce el número, el cual puede estar:
 			res = keyboard.nextInt();
 			
 			switch (minmaxvalue) {
+			//8.1.1. Entre el valor mínimo y el máximo, ambos incluidos
 			case BOTH_INCLUDED:
+				//8.1.1.1. Si cumple esto, la función devuelve dicho número
 				if (res >= min && res <= max) {
 					isValid = true;
+				//8.1.1.2. Si no lo cumple, se le vuelve a pedir que introduzca otra vez un número
 				} else {
 					System.out.printf("%d no está entre los límites %d y %d, ambos incluidos\n", res, min, max);
 					isValid = false;
 				}
 				break;
+			//8.1.2. Entre el valor mínimo y el máximo, ambos excluidos
 			case BOTH_EXCLUDED:
+				//8.1.2.1. Si cumple esto, la función devuelve dicho número
 				if (res > min && res < max) {
 					isValid = true;
+				//8.1.2.2. Si no lo cumple, se le vuelve a pedir que introduzca otra vez un número
 				} else {
 					System.out.printf("%d no está entre los límites %d y %d, ambos excluidos\n", res, min, max);
+					isValid = false;
 				}
 				break;
+			//8.1.3. Entre el valor mínimo (excluido) y el máximo (incluido)
 			case MINEXC_MAXINCL:
+				//8.1.3.1. Si cumple esto, la función devuelve dicho número
 				if (res > min && res <= max) {
 					isValid = true;
+				//8.1.3.2. Si no lo cumple, se le vuelve a pedir que introduzca otra vez un número
 				} else {
 					System.out.printf("%d no está entre los límites %d y %d, %d excluido y %d incluido\n", res, min, max, min, max);
 					isValid = false;
 				}
 				break;
+			//8.1.4. Entre el valor mínimo (incluido) y el máximo (excluido)
 			case MININC_MAXEXC:
+				//8.1.4.1. Si cumple esto, la función devuelve dicho número
 				if (res >= min && res < max) {
 					isValid = true;
+				//8.1.4.2. Si no lo cumple, se le vuelve a pedir que introduzca otra vez un número
 				} else {
 					System.out.printf("%d no está entre los límites %d y %d, %d incluido y %d excluido\n", res, min, max, min, max);
 					isValid = false;
@@ -911,36 +982,51 @@ public class Keyboard {
 		}
 		
 		do {
+			//8. Se muestra al usuario un mensaje para que introduzca un número situado entre un valor mínimo y máximo
 			System.out.printf("Introduce un número entre los valores %d y %d sabiendo que %s: ", min, max, minmaxvalue);
+			//8.1. El usuario introduce el número, el cual puede estar:
 			res = keyboard.nextLong();
 			
 			switch (minmaxvalue) {
+			//8.1.1. Entre el valor mínimo y el máximo, ambos incluidos
 			case BOTH_INCLUDED:
+				//8.1.1.1. Si cumple esto, la función devuelve dicho número
 				if (res >= min && res <= max) {
 					isValid = true;
+				//8.1.1.2. Si no lo cumple, se le vuelve a pedir que introduzca otra vez un número
 				} else {
 					System.out.printf("%d no está entre los límites %d y %d, ambos incluidos\n", res, min, max);
 					isValid = false;
 				}
 				break;
+			//8.1.2. Entre el valor mínimo y el máximo, ambos excluidos
 			case BOTH_EXCLUDED:
+				//8.1.2.1. Si cumple esto, la función devuelve dicho número
 				if (res > min && res < max) {
 					isValid = true;
+				//8.1.2.2. Si no lo cumple, se le vuelve a pedir que introduzca otra vez un número
 				} else {
 					System.out.printf("%d no está entre los límites %d y %d, ambos excluidos\n", res, min, max);
+					isValid = false;
 				}
 				break;
+			//8.1.3. Entre el valor mínimo (excluido) y el máximo (incluido)
 			case MINEXC_MAXINCL:
+				//8.1.3.1. Si cumple esto, la función devuelve dicho número
 				if (res > min && res <= max) {
 					isValid = true;
+				//8.1.3.2. Si no lo cumple, se le vuelve a pedir que introduzca otra vez un número
 				} else {
 					System.out.printf("%d no está entre los límites %d y %d, %d excluido y %d incluido\n", res, min, max, min, max);
 					isValid = false;
 				}
 				break;
+			//8.1.4. Entre el valor mínimo (incluido) y el máximo (excluido)
 			case MININC_MAXEXC:
+				//8.1.4.1. Si cumple esto, la función devuelve dicho número
 				if (res >= min && res < max) {
 					isValid = true;
+				//8.1.4.2. Si no lo cumple, se le vuelve a pedir que introduzca otra vez un número
 				} else {
 					System.out.printf("%d no está entre los límites %d y %d, %d incluido y %d excluido\n", res, min, max, min, max);
 					isValid = false;
@@ -961,36 +1047,51 @@ public class Keyboard {
 		}
 		
 		do {
+			//8. Se muestra al usuario un mensaje para que introduzca un número situado entre un valor mínimo y máximo
 			System.out.printf("Introduce un número entre los valores %.4f y %.4f sabiendo que %s: ", min, max, minmaxvalue);
+			//8.1. El usuario introduce el número, el cual puede estar:
 			res = keyboard.nextFloat();
 			
 			switch (minmaxvalue) {
+			//8.1.1. Entre el valor mínimo y el máximo, ambos incluidos
 			case BOTH_INCLUDED:
+				//8.1.1.1. Si cumple esto, la función devuelve dicho número
 				if (res >= min && res <= max) {
 					isValid = true;
+				//8.1.1.2. Si no lo cumple, se le vuelve a pedir que introduzca otra vez un número
 				} else {
 					System.out.printf("%.4f no está entre los límites %.4f y %.4f, ambos incluidos\n", res, min, max);
 					isValid = false;
 				}
 				break;
+			//8.1.2. Entre el valor mínimo y el máximo, ambos excluidos
 			case BOTH_EXCLUDED:
+				//8.1.2.1. Si cumple esto, la función devuelve dicho número
 				if (res > min && res < max) {
 					isValid = true;
+				//8.1.2.2. Si no lo cumple, se le vuelve a pedir que introduzca otra vez un número
 				} else {
 					System.out.printf("%.4f no está entre los límites %.4f y %.4f, ambos excluidos\n", res, min, max);
+					isValid = false;
 				}
 				break;
+			//8.1.3. Entre el valor mínimo (excluido) y el máximo (incluido)
 			case MINEXC_MAXINCL:
+				//8.1.3.1. Si cumple esto, la función devuelve dicho número
 				if (res > min && res <= max) {
 					isValid = true;
+				//8.1.3.2. Si no lo cumple, se le vuelve a pedir que introduzca otra vez un número
 				} else {
 					System.out.printf("%.4f no está entre los límites %.4f y %.4f, %.4f excluido y %.4f incluido\n", res, min, max, min, max);
 					isValid = false;
 				}
 				break;
+			//8.1.4. Entre el valor mínimo (incluido) y el máximo (excluido)
 			case MININC_MAXEXC:
+				//8.1.4.1. Si cumple esto, la función devuelve dicho número
 				if (res >= min && res < max) {
 					isValid = true;
+				//8.1.4.2. Si no lo cumple, se le vuelve a pedir que introduzca otra vez un número
 				} else {
 					System.out.printf("%.4f no está entre los límites %.4f y %.4f, %.4f incluido y %.4f excluido\n", res, min, max, min, max);
 					isValid = false;
@@ -1011,36 +1112,51 @@ public class Keyboard {
 		}
 		
 		do {
+			//8. Se muestra al usuario un mensaje para que introduzca un número situado entre un valor mínimo y máximo
 			System.out.printf("Introduce un número entre los valores %.4f y %.4f sabiendo que %s: ", min, max, minmaxvalue);
+			//8.1. El usuario introduce el número, el cual puede estar:
 			res = keyboard.nextDouble();
 			
 			switch (minmaxvalue) {
+			//8.1.1. Entre el valor mínimo y el máximo, ambos incluidos
 			case BOTH_INCLUDED:
+				//8.1.1.1. Si cumple esto, la función devuelve dicho número
 				if (res >= min && res <= max) {
 					isValid = true;
+				//8.1.1.2. Si no lo cumple, se le vuelve a pedir que introduzca otra vez un número
 				} else {
 					System.out.printf("%.4f no está entre los límites %.4f y %.4f, ambos incluidos\n", res, min, max);
 					isValid = false;
 				}
 				break;
+			//8.1.2. Entre el valor mínimo y el máximo, ambos excluidos
 			case BOTH_EXCLUDED:
+				//8.1.2.1. Si cumple esto, la función devuelve dicho número
 				if (res > min && res < max) {
 					isValid = true;
+				//8.1.2.2. Si no lo cumple, se le vuelve a pedir que introduzca otra vez un número
 				} else {
 					System.out.printf("%.4f no está entre los límites %.4f y %.4f, ambos excluidos\n", res, min, max);
+					isValid = false;
 				}
 				break;
+			//8.1.3. Entre el valor mínimo (excluido) y el máximo (incluido)
 			case MINEXC_MAXINCL:
+				//8.1.3.1. Si cumple esto, la función devuelve dicho número
 				if (res > min && res <= max) {
 					isValid = true;
+				//8.1.3.2. Si no lo cumple, se le vuelve a pedir que introduzca otra vez un número
 				} else {
 					System.out.printf("%.4f no está entre los límites %.4f y %.4f, %.4f excluido y %f incluido\n", res, min, max, min, max);
 					isValid = false;
 				}
 				break;
+			//8.1.4. Entre el valor mínimo (incluido) y el máximo (excluido)
 			case MININC_MAXEXC:
+				//8.1.4.1. Si cumple esto, la función devuelve dicho número
 				if (res >= min && res < max) {
 					isValid = true;
+				//8.1.4.2. Si no lo cumple, se le vuelve a pedir que introduzca otra vez un número
 				} else {
 					System.out.printf("%.4f no está entre los límites %.4f y %.4f, %.4f incluido y %.4f excluido\n", res, min, max, min, max);
 					isValid = false;
