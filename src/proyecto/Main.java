@@ -17,10 +17,11 @@ public class Main {
 		
 		//Lectura de un boolean
 		//System.out.println(Keyboard.readBoolean("¿Cómo te llamas?", "Ana", "Maria"));
-		//System.out.println(Keyboard.readBoolean("¿Estás estudiando?"));
-		
+		System.out.println(Keyboard.readBoolean("¿Estás estudiando?"));
+		System.out.println(Keyboard.readChar("asfsafasf"));
+		System.out.println(Keyboard.readChar());
 		//Lectura de un número
-		System.out.println(Keyboard.readByte());
+		//System.out.println(Keyboard.readByte());
 		/*
 		System.out.println("Número short: ");
 		System.out.println(Keyboard.readShort());

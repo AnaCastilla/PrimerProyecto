@@ -12,11 +12,10 @@ import java.util.Scanner;
 	 * 
 	 * 1. Cerrar el teclado
 	 * 
-	 * 2. Mostrar un mensaje al usuario con la petición del carácter
-	 * 	2.1. El usuario introduce el carácter
-	 * 	2.2. Comprobar si es un solo carácter
-	 * 		2.2.1. Si es más de un carácter, informar al usuario y se lo vuelvo a pedir
-	 * 		2.2.2. Si es uno, la función devuelve el carácter
+	 * 	2. El usuario introduce el carácter
+	 * 	2.1. Comprobar si es un solo carácter
+	 * 		2.1.1. Si es más de un carácter, informar al usuario y se lo vuelvo a pedir
+	 * 		2.1.2. Si es uno, la función devuelve el carácter
 	 * 
 	 * 3. Mostrar un mensaje al usuario con la petición de una cadena
 	 * 	3.1. El usuario introduce la cadena
@@ -110,25 +109,29 @@ public class Keyboard {
 		boolean exit = true;
 		
 		do {
-			//2. Mostrar un mensaje al usuario con la petición del carácter
-			System.out.print("Introduce un carácter: ");
-			//2.1. El usuario introduce el carácter
+			//2. El usuario introduce el carácter
 			//char1 es String porque uso esa variable para usar el método length para comprobar si se ha introducido más de un carácter
 			//y en char2 se guardará el primer carácter de char1 con el método charAt
 			char1 = keyboard.next();
 			char2 = char1.charAt(0);
 			exit = true;
-			//2.2. Comprobar si es un solo carácter
+			//2.1. Comprobar si es un solo carácter
 			if (char1.length() > 1) {
-				//2.2.1. Si es más de un carácter, informar al usuario y se lo vuelvo a pedir
+				//2.1.1. Si es más de un carácter, informar al usuario y se lo vuelvo a pedir
 				System.out.println("Has introducido más de un carácter, inténtalo de nuevo");
 				exit = false;
 				keyboard.nextLine();
 			} 
 		} while (!exit);
 		
-		//2.2.2. Si es uno, la función devuelve el carácter 
+		//2.1.2. Si es uno, la función devuelve el carácter 
 		return char2;
+	}
+	
+	//con esta función le podemos mostrar un mensaje dependiendo de lo que necesitemos del carácter que tenemos que introducir 
+	public static char readChar(String mensaje) {
+		System.out.printf("%s: ", mensaje);
+		return readChar();
 	}
 	
 	/*
