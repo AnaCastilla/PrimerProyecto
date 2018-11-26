@@ -165,7 +165,8 @@ public class Keyboard {
 		do {
 			//4. El usuario tiene que responder a una pregunta introduciendo 1 o 2 
 			System.out.printf("%s\n1. %s\n2. %s\n" , question, answer1, answer2);
-			elec = keyboard.nextByte();
+			elec = readByte();
+			
 			//4.4. Si no introduce ni 1 ni 2, se le vuelve a pedir
 			if (elec != 1 && elec != 2) {
 				System.out.println("Error, tienes que introducir 1 o 2, inténtalo de nuevo");
@@ -851,7 +852,7 @@ public class Keyboard {
 		boolean isValid = false;
 		
 		if (min > max) {
-			throw new IllegalArgumentException("Error, el valor mínimo tiene que ser menor que el máximo");
+			throw new IllegalArgumentException("Error, el valor mínimo tiene que ser menor que el máximo, hacer un try catch para controlarlo");
 		}
 		
 		do {
@@ -916,7 +917,7 @@ public class Keyboard {
 		boolean isValid = false;
 		
 		if (min > max) {
-			throw new IllegalArgumentException("Error, el valor mínimo tiene que ser menor que el máximo");
+			throw new IllegalArgumentException("Error, el valor mínimo tiene que ser menor que el máximo, hacer un try catch para controlarlo");
 		}
 		
 		do {
@@ -981,7 +982,7 @@ public class Keyboard {
 		boolean isValid = false;
 		
 		if (min > max) {
-			throw new IllegalArgumentException("Error, el valor mínimo tiene que ser menor que el máximo");
+			throw new IllegalArgumentException("Error, el valor mínimo tiene que ser menor que el máximo, hacer un try catch para controlarlo");
 		}
 		
 		do {
@@ -1046,7 +1047,7 @@ public class Keyboard {
 		boolean isValid = false;
 		
 		if (min > max) {
-			throw new IllegalArgumentException("Error, el valor mínimo tiene que ser menor que el máximo");
+			throw new IllegalArgumentException("Error, el valor mínimo tiene que ser menor que el máximo, hacer un try catch para controlarlo");
 		}
 		
 		do {
@@ -1111,7 +1112,7 @@ public class Keyboard {
 		boolean isValid = false;
 		
 		if (min > max) {
-			throw new IllegalArgumentException("Error, el valor mínimo tiene que ser menor que el máximo");
+			throw new IllegalArgumentException("Error, el valor mínimo tiene que ser menor que el máximo, hacer un try catch para controlarlo");
 		}
 		
 		do {
