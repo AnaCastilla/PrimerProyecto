@@ -12,7 +12,7 @@ public class Main {
 		 * de la clase Keyboard para comprobar que hacen su función
 		 */
 		char character;
-		boolean exit = true, choose;
+		boolean exit = true, loop = true, choose;
 		byte elec;
 		
 		System.out.println("PRUEBAS DEL TECLADO");
@@ -57,6 +57,129 @@ public class Main {
 				} else {
 					exit = true;
 				}
+			} else if (elec == 4) {
+				do {
+				typeNumMenu();
+				elec = Keyboard.readByte();
+				if (elec != 1 && elec != 2 && elec != 3 && elec != 4 && elec != 5 && elec != 6) {
+					System.out.println("Número incorrecto, elige del 1 al 6");
+					loop = false;
+				} else {
+					if (elec == 1) {
+						System.out.println(Keyboard.readByte());
+					} else if (elec == 2) {
+						System.out.println(Keyboard.readShort());
+					} else if (elec == 3) {
+						System.out.println(Keyboard.readInt());
+					} else if (elec == 4) {
+						System.out.println(Keyboard.readLong());
+					} else if (elec == 5) {
+						System.out.println(Keyboard.readFloat());
+					} else if (elec == 6) {
+						System.out.println(Keyboard.readDouble());
+					}
+					choose = Keyboard.readBoolean("¿Quieres probar otra cosa?", "Sí", "No");
+					if (choose == true) {
+						exit = false;
+					} else {
+						exit = true;
+					}
+				}
+				} while (!loop);	
+			} else if (elec == 5) {
+				do {
+					typeNumMenu();
+					elec = Keyboard.readByte();
+					if (elec != 1 && elec != 2 && elec != 3 && elec != 4 && elec != 5 && elec != 6) {
+						System.out.println("Número incorrecto, elige del 1 al 6");
+						loop = false;
+					} else {
+						if (elec == 1) {
+							System.out.println(Keyboard.readComparation((byte)120, Comparation.GREATER));
+							System.out.println(Keyboard.readComparation((byte)120, Comparation.GREATER_OR_EQUAL));
+							System.out.println(Keyboard.readComparation((byte)120, Comparation.MINOR));
+							System.out.println(Keyboard.readComparation((byte)120, Comparation.MINOR_OR_EQUAL));
+						} else if (elec == 2) {
+							System.out.println(Keyboard.readComparation((short)120, Comparation.GREATER));
+							System.out.println(Keyboard.readComparation((short)120, Comparation.GREATER_OR_EQUAL));
+							System.out.println(Keyboard.readComparation((short)120, Comparation.MINOR));
+							System.out.println(Keyboard.readComparation((short)120, Comparation.MINOR_OR_EQUAL));
+						} else if (elec == 3) {
+							System.out.println(Keyboard.readComparation((int)120, Comparation.GREATER));
+							System.out.println(Keyboard.readComparation((int)120, Comparation.GREATER_OR_EQUAL));
+							System.out.println(Keyboard.readComparation((int)120, Comparation.MINOR));
+							System.out.println(Keyboard.readComparation((int)120, Comparation.MINOR_OR_EQUAL));
+						} else if (elec == 4) {
+							System.out.println(Keyboard.readComparation((long)120, Comparation.GREATER));
+							System.out.println(Keyboard.readComparation((long)120, Comparation.GREATER_OR_EQUAL));
+							System.out.println(Keyboard.readComparation((long)120, Comparation.MINOR));
+							System.out.println(Keyboard.readComparation((long)120, Comparation.MINOR_OR_EQUAL));
+						} else if (elec == 5) {
+							System.out.println(Keyboard.readComparation((float)120, Comparation.GREATER));
+							System.out.println(Keyboard.readComparation((float)120, Comparation.GREATER_OR_EQUAL));
+							System.out.println(Keyboard.readComparation((float)120, Comparation.MINOR));
+							System.out.println(Keyboard.readComparation((float)120, Comparation.MINOR_OR_EQUAL));
+						} else if (elec == 6) {
+							System.out.println(Keyboard.readComparation((double)120, Comparation.GREATER));
+							System.out.println(Keyboard.readComparation((double)120, Comparation.GREATER_OR_EQUAL));
+							System.out.println(Keyboard.readComparation((double)120, Comparation.MINOR));
+							System.out.println(Keyboard.readComparation((double)120, Comparation.MINOR_OR_EQUAL));
+						}
+						choose = Keyboard.readBoolean("¿Quieres probar otra cosa?", "Sí", "No");
+						if (choose == true) {
+							exit = false;
+						} else {
+							exit = true;
+						}	
+					}
+				} while (!loop);	
+			} else if (elec == 6) {
+				do {
+					typeNumMenu();
+					elec = Keyboard.readByte();
+					if (elec != 1 && elec != 2 && elec != 3 && elec != 4 && elec != 5 && elec != 6) {
+						System.out.println("Número incorrecto, elige del 1 al 6");
+						loop = false;
+					} else {
+						if (elec == 1) {
+							System.out.println(Keyboard.readMinMaxValues((byte)50, (byte)100, MinMaxValue.BOTH_EXCLUDED));
+							System.out.println(Keyboard.readMinMaxValues((byte)50, (byte)100, MinMaxValue.BOTH_INCLUDED));
+							System.out.println(Keyboard.readMinMaxValues((byte)50, (byte)100, MinMaxValue.MINEXC_MAXINCL));
+							System.out.println(Keyboard.readMinMaxValues((byte)50, (byte)100, MinMaxValue.MININC_MAXEXC));
+						} else if (elec == 2) {
+							System.out.println(Keyboard.readMinMaxValues((short)50, (short)100, MinMaxValue.BOTH_EXCLUDED));
+							System.out.println(Keyboard.readMinMaxValues((short)50, (short)100, MinMaxValue.BOTH_INCLUDED));
+							System.out.println(Keyboard.readMinMaxValues((short)50, (short)100, MinMaxValue.MINEXC_MAXINCL));
+							System.out.println(Keyboard.readMinMaxValues((short)50, (short)100, MinMaxValue.MININC_MAXEXC));
+						} else if (elec == 3) {
+							System.out.println(Keyboard.readMinMaxValues((int)50, (int)100, MinMaxValue.BOTH_EXCLUDED));
+							System.out.println(Keyboard.readMinMaxValues((int)50, (int)100, MinMaxValue.BOTH_INCLUDED));
+							System.out.println(Keyboard.readMinMaxValues((int)50, (int)100, MinMaxValue.MINEXC_MAXINCL));
+							System.out.println(Keyboard.readMinMaxValues((int)50, (int)100, MinMaxValue.MININC_MAXEXC));
+						} else if (elec == 4) {
+							System.out.println(Keyboard.readMinMaxValues((long)50, (long)100, MinMaxValue.BOTH_EXCLUDED));
+							System.out.println(Keyboard.readMinMaxValues((long)50, (long)100, MinMaxValue.BOTH_INCLUDED));
+							System.out.println(Keyboard.readMinMaxValues((long)50, (long)100, MinMaxValue.MINEXC_MAXINCL));
+							System.out.println(Keyboard.readMinMaxValues((long)50, (long)100, MinMaxValue.MININC_MAXEXC));
+						} else if (elec == 5) {
+							System.out.println(Keyboard.readMinMaxValues((float)50, (float)100, MinMaxValue.BOTH_EXCLUDED));
+							System.out.println(Keyboard.readMinMaxValues((float)50, (float)100, MinMaxValue.BOTH_INCLUDED));
+							System.out.println(Keyboard.readMinMaxValues((float)50, (float)100, MinMaxValue.MINEXC_MAXINCL));
+							System.out.println(Keyboard.readMinMaxValues((float)50, (float)100, MinMaxValue.MININC_MAXEXC));
+						} else if (elec == 6) {
+							System.out.println(Keyboard.readMinMaxValues((double)50, (double)100, MinMaxValue.BOTH_EXCLUDED));
+							System.out.println(Keyboard.readMinMaxValues((double)50, (double)100, MinMaxValue.BOTH_INCLUDED));
+							System.out.println(Keyboard.readMinMaxValues((double)50, (double)100, MinMaxValue.MINEXC_MAXINCL));
+							System.out.println(Keyboard.readMinMaxValues((double)50, (double)100, MinMaxValue.MININC_MAXEXC));
+						}
+						choose = Keyboard.readBoolean("¿Quieres probar otra cosa?", "Sí", "No");
+						if (choose == true) {
+							exit = false;
+						} else {
+							exit = true;
+						}
+					}
+				} while (!loop);
 			}
 		} while (!exit);
 		
@@ -68,7 +191,8 @@ public class Main {
 	}
 	
 	public static void typeNumMenu() {
-		System.out.println();
+		System.out.println("¿Qué tipo quieres probar?\n1. Tipo byte\n2. Tipo short\n3. Tipo int\n4. Tipo long\n5. Tipo float"
+				+ "\n6. Tipo double");
 	}
 	
 }
