@@ -180,8 +180,11 @@ public class Main {
 						}
 					}
 				} while (!loop);
+			
+			} else if (elec == 7) {
+				Keyboard.closeKeyboard();
 			} else {
-				System.out.println("Error, tienes que elegir del 1 al 6");
+				System.out.println("Error, tienes que elegir del 1 al 7");
 				exit = false;
 			}
 		} while (!exit);
@@ -190,7 +193,7 @@ public class Main {
 	
 	public static void menu() {
 		System.out.println("¿Qué quieres probar?\n1. Lectura de un carácter\n2. Lectura de una cadena\n3. Lectura de un boolean"
-				+ "\n4. Lectura de un número\n5. Lectura de un número con un límite\n6. Lectura de un número dentro de un rango");
+				+ "\n4. Lectura de un número\n5. Lectura de un número con un límite\n6. Lectura de un número dentro de un rango\n7. Cerrar teclado");
 	}
 	
 	public static void typeNumMenu() {
