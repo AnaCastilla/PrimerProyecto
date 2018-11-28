@@ -180,6 +180,9 @@ public class Main {
 						}
 					}
 				} while (!loop);
+			} else {
+				System.out.println("Error, tienes que elegir del 1 al 6");
+				exit = false;
 			}
 		} while (!exit);
 		
