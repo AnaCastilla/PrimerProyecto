@@ -22,9 +22,9 @@ import java.util.Scanner;
 	 * 	3.2. La función devuelve la cadena introducida
 	 * 
 	 * 4. El usuario tiene que responder a una pregunta introduciendo 1 o 2 
-	 *		4.4. Si no introduce ni 1 ni 2, se le vuelve a pedir
-	 * 		4.5. Si elige la Respuesta 1, tendrá que introducir (1) y la función devolverá true
-	 * 		4.6. Si elige la Respuesta 2, tendrá que introducir (2) y la función devolverá false
+	 *		4.1. Si no introduce ni 1 ni 2, se le vuelve a pedir
+	 * 		4.2. Si elige la Respuesta 1, tendrá que introducir (1) y la función devolverá true
+	 * 		4.3. Si elige la Respuesta 2, tendrá que introducir (2) y la función devolverá false
 	 * 
 	 * 5. El usuario tiene que responder una pregunta introduciendo 's', 'S', 'n' o 'N'.
 	 * 	    5.1. Si introduce otra cosa, se le vuelve a pedir
@@ -97,11 +97,33 @@ public class Keyboard {
 	}
 	
 	/*
-	 * 2. Mostrar un mensaje al usuario con la petición del carácter
-	 * 	2.1. El usuario introduce el carácter
-	 * 	2.2. Comprobar si es un solo carácter
-	 * 		2.2.1. Si es más de un carácter, informar al usuario y se lo vuelvo a pedir
-	 * 		2.2.2. Si es uno, la función devuelve el carácter 
+	 * Se crea un enum para indicar que un número puede ser:
+	 * 	- mayor o igual
+	 * 	- menor o igual
+	 * 	- mayor 
+	 * 	- menor
+	 */
+	public static enum Comparation {
+		GREATER_OR_EQUAL, MINOR_OR_EQUAL, GREATER, MINOR
+	}
+	
+	/*
+	 * Se crea un enum para indicar que un valor mínimo y máximo pueden estar:
+	 * 	- ambos incluidos
+	 * 	- ambos excluidos
+	 * 	- el mínimo incluido y el máximo excluido
+	 * 	- el mínimo excluido y el máximo incluido
+	 */
+	
+	public static enum MinMaxValue {
+		BOTH_INCLUDED, BOTH_EXCLUDED, MININC_MAXEXC, MINEXC_MAXINCL
+	}
+	
+	/*
+	 * 2. El usuario introduce el carácter
+	 * 	2.1. Comprobar si es un solo carácter
+	 * 		2.1.1. Si es más de un carácter, informar al usuario y se lo vuelvo a pedir
+	 * 		2.1.2. Si es uno, la función devuelve el carácter 
 	 */
 	public static char readChar() {
 		String char1;
@@ -154,24 +176,17 @@ public class Keyboard {
 	
 	/*
 	 * 4. El usuario tiene que responder a una pregunta introduciendo 1 o 2 
-	 *	4.4. Si no introduce ni 1 ni 2, se le vuelve a pedir
-	 * 	4.5. Si elige la Respuesta 1, tendrá que introducir (1) y la función devolverá true
-	 * 	4.6. Si elige la Respuesta 2, tendrá que introducir (2) y la función devolverá false
+	 *	4.1. Si no introduce ni 1 ni 2, se le vuelve a pedir
+	 * 	4.2. Si elige la Respuesta 1, tendrá que introducir (1) y la función devolverá true
+	 * 	4.3. Si elige la Respuesta 2, tendrá que introducir (2) y la función devolverá false
 	 */
 	public static boolean readBoolean (String question, String answer1, String answer2) {
 		boolean res;
 		byte elec;
 				
-		do {
 			//4. El usuario tiene que responder a una pregunta introduciendo 1 o 2 
 			System.out.printf("%s\n1. %s\n2. %s\n" , question, answer1, answer2);
-			elec = readByte();
-			
-			//4.4. Si no introduce ni 1 ni 2, se le vuelve a pedir
-			if (elec != 1 && elec != 2) {
-				System.out.println("Error, tienes que introducir 1 o 2, inténtalo de nuevo");
-			}
-		} while (elec != 1 && elec != 2);
+			elec = (byte) readMinMaxValues(1, 2, MinMaxValue.BOTH_INCLUDED);
 		/*
 		 * 	4.5. Si elige la Respuesta 1, tendrá que introducir (1) y la función devolverá true
 		 * 	4.6. Si elige la Respuesta 2, tendrá que introducir (2) y la función devolverá false
@@ -358,16 +373,6 @@ public class Keyboard {
 		return num;
 	}
 	
-	/*
-	 * Se crea un enum para indicar que un número puede ser:
-	 * 	- mayor o igual
-	 * 	- menor o igual
-	 * 	- mayor 
-	 * 	- menor
-	 */
-	public static enum Comparation {
-		GREATER_OR_EQUAL, MINOR_OR_EQUAL, GREATER, MINOR
-	}
 	
 	/*
 	 * -- LECTURA DE UN NÚMERO MAYOR, MENOR O IGUAL QUE UNO INTRODUCIDO POR PARÁMETRO -- (este planteamiento vale para las siguientes 6 funciones)
@@ -396,7 +401,7 @@ public class Keyboard {
 			//7. Se muestra un mensaje el cual le pide al usuario un número
 			System.out.printf("Introduce un número %s que %d: " , comparation, num);
 			//7.1. El usuario introduce un número, el cual puede ser:
-			res = keyboard.nextByte();
+			res = readByte();
 			
 			switch (comparation) {
 			//7.1.1. Mayor o igual que el número límite
@@ -456,7 +461,7 @@ public class Keyboard {
 			//7. Se muestra un mensaje el cual le pide al usuario un número
 			System.out.printf("Introduce un número %s que %d: " , comparation, num);
 			//7.1. El usuario introduce un número, el cual puede ser:
-			res = keyboard.nextShort();
+			res = readShort();
 			
 			switch (comparation) {
 			//7.1.1. Mayor o igual que el número límite
@@ -516,7 +521,7 @@ public class Keyboard {
 			//7. Se muestra un mensaje el cual le pide al usuario un número
 			System.out.printf("Introduce un número %s que %d: " , comparation, num);
 			//7.1. El usuario introduce un número, el cual puede ser:
-			res = keyboard.nextInt();
+			res = readInt();
 			
 			switch (comparation) {
 			//7.1.1. Mayor o igual que el número límite
@@ -576,7 +581,7 @@ public class Keyboard {
 			//7. Se muestra un mensaje el cual le pide al usuario un número
 			System.out.printf("Introduce un número %s que %d: " , comparation, num);
 			//7.1. El usuario introduce un número, el cual puede ser:
-			res = keyboard.nextLong();
+			res = readLong();
 			
 			switch (comparation) {
 			//7.1.1. Mayor o igual que el número límite
@@ -636,7 +641,7 @@ public class Keyboard {
 			//7. Se muestra un mensaje el cual le pide al usuario un número
 			System.out.printf("Introduce un número %s que %d: " , comparation, num);
 			//7.1. El usuario introduce un número, el cual puede ser:
-			res = keyboard.nextFloat();
+			res = readFloat();
 			
 			switch (comparation) {
 			//7.1.1. Mayor o igual que el número límite
@@ -696,7 +701,7 @@ public class Keyboard {
 			//7. Se muestra un mensaje el cual le pide al usuario un número
 			System.out.printf("Introduce un número %s que %d: " , comparation, num);
 			//7.1. El usuario introduce un número, el cual puede ser:
-			res = keyboard.nextDouble();
+			res = readDouble();
 			
 			switch (comparation) {
 			//7.1.1. Mayor o igual que el número límite
@@ -749,18 +754,6 @@ public class Keyboard {
 	}
 	
 	/*
-	 * Se crea un enum para indicar que un valor mínimo y máximo pueden estar:
-	 * 	- ambos incluidos
-	 * 	- ambos excluidos
-	 * 	- el mínimo incluido y el máximo excluido
-	 * 	- el mínimo excluido y el máximo incluido
-	 */
-	
-	public static enum MinMaxValue {
-		BOTH_INCLUDED, BOTH_EXCLUDED, MININC_MAXEXC, MINEXC_MAXINCL
-	}
-	
-	/*
 	 * -- LECTURA DE UN NÚMERO SITUADO ENTRE UN VALOR MÍNIMO Y MÁXIMO INTRODUCIDOS POR PARÁMETRO -- (este planteamiento vale para las siguientes 6 funciones)
 	 * 	-> Si el valor mínimo es mayor que el valor máximo, no se ejecutará el programa
 	 * 	-> Ambos valores pueden ser iguales 
@@ -787,14 +780,14 @@ public class Keyboard {
 		
 		//si el valor mínimo es mayor que el máximo, se lanza esta excepción que se controlará en el main 
 		if (min > max) {
-			throw new IllegalArgumentException("Error, el valor mínimo tiene que ser menor que el máximo, hacer un try catch para controlarlo");
+			throw new IllegalArgumentException("Error, el valor mínimo tiene que ser menor que el máximo");
 		}
 		
 		do {
 			//8. Se muestra al usuario un mensaje para que introduzca un número situado entre un valor mínimo y máximo
 			System.out.printf("Introduce un número entre los valores %d y %d sabiendo que %s: ", min, max, minmaxvalue);
 			//8.1. El usuario introduce el número, el cual puede estar:
-			res = keyboard.nextByte();
+			res = readByte();
 			
 			switch (minmaxvalue) {
 			//8.1.1. Entre el valor mínimo y el máximo, ambos incluidos
@@ -859,7 +852,7 @@ public class Keyboard {
 			//8. Se muestra al usuario un mensaje para que introduzca un número situado entre un valor mínimo y máximo
 			System.out.printf("Introduce un número entre los valores %d y %d sabiendo que %s: ", min, max, minmaxvalue);
 			//8.1. El usuario introduce el número, el cual puede estar:
-			res = keyboard.nextShort();
+			res = readShort();
 			
 			switch (minmaxvalue) {
 			//8.1.1. Entre el valor mínimo y el máximo, ambos incluidos
@@ -924,7 +917,7 @@ public class Keyboard {
 			//8. Se muestra al usuario un mensaje para que introduzca un número situado entre un valor mínimo y máximo
 			System.out.printf("Introduce un número entre los valores %d y %d sabiendo que %s: ", min, max, minmaxvalue);
 			//8.1. El usuario introduce el número, el cual puede estar:
-			res = keyboard.nextInt();
+			res = readInt();
 			
 			switch (minmaxvalue) {
 			//8.1.1. Entre el valor mínimo y el máximo, ambos incluidos
@@ -989,7 +982,7 @@ public class Keyboard {
 			//8. Se muestra al usuario un mensaje para que introduzca un número situado entre un valor mínimo y máximo
 			System.out.printf("Introduce un número entre los valores %d y %d sabiendo que %s: ", min, max, minmaxvalue);
 			//8.1. El usuario introduce el número, el cual puede estar:
-			res = keyboard.nextLong();
+			res = readLong();
 			
 			switch (minmaxvalue) {
 			//8.1.1. Entre el valor mínimo y el máximo, ambos incluidos
@@ -1054,7 +1047,7 @@ public class Keyboard {
 			//8. Se muestra al usuario un mensaje para que introduzca un número situado entre un valor mínimo y máximo
 			System.out.printf("Introduce un número entre los valores %.4f y %.4f sabiendo que %s: ", min, max, minmaxvalue);
 			//8.1. El usuario introduce el número, el cual puede estar:
-			res = keyboard.nextFloat();
+			res = readFloat();
 			
 			switch (minmaxvalue) {
 			//8.1.1. Entre el valor mínimo y el máximo, ambos incluidos
@@ -1119,7 +1112,7 @@ public class Keyboard {
 			//8. Se muestra al usuario un mensaje para que introduzca un número situado entre un valor mínimo y máximo
 			System.out.printf("Introduce un número entre los valores %.4f y %.4f sabiendo que %s: ", min, max, minmaxvalue);
 			//8.1. El usuario introduce el número, el cual puede estar:
-			res = keyboard.nextDouble();
+			res = readDouble();
 			
 			switch (minmaxvalue) {
 			//8.1.1. Entre el valor mínimo y el máximo, ambos incluidos
